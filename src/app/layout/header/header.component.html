@@ -9,19 +9,26 @@
         />
       </a>
       <ul class="nav__list">
-        <li class="nav__item"><a>Offers</a></li>
-        <li class="nav__item"><a>Companies</a></li>
-        <li class="nav__item"><a>About</a></li>
+        <li class="nav__item">
+          <a>{{ "HEADER.OFFERS" | translate }}</a>
+        </li>
+        <li class="nav__item">
+          <a>{{ "HEADER.COMPANIES" | translate }}</a>
+        </li>
+        <li class="nav__item">
+          <a>{{ "HEADER.ABOUT" | translate }}</a>
+        </li>
       </ul>
       <ul class="nav__list">
         <li class="nav__item nav__item--auth">
-          <a>Register</a>
+          <a>{{ "HEADER.REGISTER" | translate }}</a>
         </li>
         <li class="nav__item nav__item--auth">
-          <a>Login</a>
+          <a>{{ "HEADER.LOGIN" | translate }}</a>
         </li>
         <li class="nav__item">
           <img
+            (click)="onSwitchLanguage('pl')"
             src="../../../assets/img/poland.png"
             alt="poland-flag"
             class="flag"
@@ -29,6 +36,7 @@
         </li>
         <li class="nav__item">
           <img
+            (click)="onSwitchLanguage('en')"
             src="../../../assets/img/united-kingdom.png"
             alt="uk-flag"
             class="flag"
