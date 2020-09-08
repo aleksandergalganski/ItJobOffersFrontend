@@ -10,6 +10,8 @@ import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { OffersListComponent } from './offers/offers-list/offers-list.component';
+import { OfferItemComponent } from './offers/offer-item/offer-item.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { RegisterComponent } from './auth/register/register.component';
     FooterComponent,
     LoginComponent,
     RegisterComponent,
+    OffersListComponent,
+    OfferItemComponent,
   ],
   imports: [
     BrowserModule,

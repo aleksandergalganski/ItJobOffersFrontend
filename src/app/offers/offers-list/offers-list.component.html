@@ -1,0 +1,28 @@
+<div class="container">
+  <div *ngIf="isLoading" style="text-align: center; margin: 20px 0">
+    <img src="../../../assets/gif/25.gif" alt="" />
+  </div>
+  <section class="offers__list" *ngIf="!isLoading">
+    <div class="offer" *ngFor="let offer of offers">
+      <h3 class="offer__name">{{ offer.name }}</h3>
+      <p class="offer__salary">
+        {{ offer.salaryMin }} - {{ offer.salaryMax }} PLN
+      </p>
+      <p>Gdansk</p>
+      <small class="offer__created">{{ offer.createdAt | date }}</small>
+      <img
+        src="https://www.logaster.com/blog/wp-content/uploads/2018/05/Graphicsprings.png"
+        alt=""
+        class="offer__companyLogo"
+      />
+      <p class="offer__companyName">{{ offer.company.name }}</p>
+      <p class="offer__city"></p>
+      <ul class="offer__musthave">
+        <li *ngFor="let must of offer.mustHave" class="offer__musthave__item">
+          {{ must }}
+        </li>
+      </ul>
+      <a class="offer__apply">Apply</a>
+    </div>
+  </section>
+</div>
