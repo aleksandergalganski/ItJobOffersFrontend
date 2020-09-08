@@ -1,6 +1,6 @@
 <div class="container">
-  <div *ngIf="isLoading" style="text-align: center; margin: 20px 0">
-    <img src="../../../assets/gif/25.gif" alt="" />
+  <div class="spinner-wrapper" *ngIf="isLoading">
+    <mat-spinner></mat-spinner>
   </div>
   <section class="offers__list" *ngIf="!isLoading">
     <div class="offer" *ngFor="let offer of offers">
