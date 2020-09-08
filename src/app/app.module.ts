@@ -12,6 +12,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { OffersListComponent } from './offers/offers-list/offers-list.component';
 import { OfferItemComponent } from './offers/offer-item/offer-item.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { OfferItemComponent } from './offers/offer-item/offer-item.component';
         deps: [HttpClient],
       },
     }),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
