@@ -5,5 +5,9 @@
     "ABOUT": "About",
     "REGISTER": "Register",
     "LOGIN": "Login"
+  },
+  "OFFER": {
+    "APPLY": "Apply",
+    "REMOTE": "Remote"
   }
 }

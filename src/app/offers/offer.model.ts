@@ -5,7 +5,7 @@ export interface Offer {
   description: string;
   salaryMin: number;
   salaryMax: number;
-  experienceLever: 'Intern' | 'Junior' | 'Min' | 'Senior' | 'Expert';
+  experienceLevel: 'Intern' | 'Junior' | 'Min' | 'Senior' | 'Expert';
   mustHave: string[];
   niceToHave: string[];
   address: string;

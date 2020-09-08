@@ -28,6 +28,10 @@
   a {
     color: #31c6e8;
     font-size: 20px;
+
+    &:hover {
+      color: darken(#31c6e8, 10%);
+    }
   }
 
   &--auth {

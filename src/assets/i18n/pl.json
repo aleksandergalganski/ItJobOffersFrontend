@@ -5,5 +5,9 @@
     "ABOUT": "O nas",
     "REGISTER": "Rejestracja",
     "LOGIN": "Zaloguj"
+  },
+  "OFFER": {
+    "APPLY": "Aplikuj",
+    "REMOTE": "Zdalnie"
   }
 }
