@@ -33,7 +33,16 @@ export class OffersListComponent implements OnInit {
 
   cities = ['Gdansk', 'Poznan', 'Warszawa'];
   categories = ['Frontend', 'Backend', 'Devops'];
-  technologies = ['Java', 'JavaScript', 'Python', 'Angular'];
+  technologies = [
+    'Java',
+    'JavaScript',
+    'Python',
+    'Angular',
+    'Java',
+    'JavaScript',
+    'Python',
+    'Angular',
+  ];
   levels = ['Junior', 'Mid', 'Senior'];
 
   constructor(

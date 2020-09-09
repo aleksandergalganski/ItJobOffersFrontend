@@ -1,1 +1,24 @@
-<p>login works!</p>
+<section class="login">
+  <h2 class="login__title">{{ "LOGIN.LOGIN" | translate }}</h2>
+  <form class="login__form">
+    <mat-form-field>
+      <mat-label>{{ "LOGIN.EMAIL" | translate }}</mat-label>
+      <input matInput placeholder="Please add an email" type="email" />
+      <mat-icon matSuffix>email</mat-icon>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>{{ "LOGIN.PASSWORD" | translate }}</mat-label>
+      <input matInput placeholder="Please add a password" type="password" />
+      <mat-icon matSuffix>vpn_key</mat-icon>
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      class="login__button"
+    >
+      {{ "LOGIN.SUBMIT" | translate }}
+    </button>
+  </form>
+</section>

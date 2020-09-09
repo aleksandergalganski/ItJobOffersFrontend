@@ -15,6 +15,9 @@ import { RegisterComponent } from './auth/register/register.component';
 import { OffersListComponent } from './offers/offers-list/offers-list.component';
 import { OfferItemComponent } from './offers/offer-item/offer-item.component';
 import { MaterialModule } from './material.module';
+import { CompaniesListComponent } from './companies/companies-list/companies-list.component';
+import { CompanyItemComponent } from './companies/company-item/company-item.component';
+import { AddOfferComponent } from './offers/add-offer/add-offer.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,9 @@ import { MaterialModule } from './material.module';
     RegisterComponent,
     OffersListComponent,
     OfferItemComponent,
+    CompaniesListComponent,
+    CompanyItemComponent,
+    AddOfferComponent,
   ],
   imports: [
     BrowserModule,

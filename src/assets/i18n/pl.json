@@ -17,5 +17,18 @@
     "EXP_LEVEL": "Doświadczenie",
     "REMOTE": "Zdalnie",
     "RESET": "Resetuj Filtry"
+  },
+  "LOGIN": {
+    "PASSWORD": "Hasło",
+    "EMAIL": "Email",
+    "LOGIN": "Zaloguj Się",
+    "SUBMIT": "Zatwierdź"
+  },
+  "REGISTER": {
+    "REGISTER": "Stwórz Konto",
+    "NAME": "Nazwa",
+    "PASSWORD": "Hasło",
+    "CONFIRM_PASSWORD": "Potwierdź Hasło",
+    "CREATE": "Stwórz"
   }
 }

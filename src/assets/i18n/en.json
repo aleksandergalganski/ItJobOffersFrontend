@@ -17,5 +17,18 @@
     "EXP_LEVEL": "Experience",
     "REMOTE": "Remote",
     "RESET": "Reset All"
+  },
+  "LOGIN": {
+    "PASSWORD": "Password",
+    "EMAIL": "Email",
+    "LOGIN": "Log In",
+    "SUBMIT": "Submit"
+  },
+  "REGISTER": {
+    "REGISTER": "Create Account",
+    "NAME": "Name",
+    "PASSWORD": "Password",
+    "CONFIRM_PASSWORD": "Confirm Password",
+    "CREATE": "Create"
   }
 }

@@ -1,0 +1,40 @@
+.register {
+  &__title {
+    text-align: center;
+    margin: 10px 0;
+    color: #31c6e8;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__button {
+    width: 300px;
+  }
+}
+
+mat-form-field {
+  width: 300px;
+}
+
+@media (max-width: 576px) {
+  mat-form-field {
+    width: 80%;
+  }
+
+  .register {
+    &__title {
+      font-size: 20px;
+    }
+
+    &__button {
+      width: 80%;
+    }
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
+}
