@@ -15,6 +15,7 @@
     "CATEGORY": "Kategoria",
     "TECHNOLOGY": "Technologie",
     "EXP_LEVEL": "Doświadczenie",
-    "REMOTE": "Zdalnie"
+    "REMOTE": "Zdalnie",
+    "RESET": "Resetuj Filtry"
   }
 }

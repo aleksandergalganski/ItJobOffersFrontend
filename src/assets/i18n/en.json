@@ -15,6 +15,7 @@
     "CATEGORY": "Category",
     "TECHNOLOGY": "Technology",
     "EXP_LEVEL": "Experience",
-    "REMOTE": "Remote"
+    "REMOTE": "Remote",
+    "RESET": "Reset All"
   }
 }
