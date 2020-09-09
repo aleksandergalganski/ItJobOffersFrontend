@@ -101,3 +101,25 @@
     </div>
   </section>
 </div>
+<section class="pagination" *ngIf="pagination">
+  <div>
+    <button
+      mat-fab
+      [disabled]="!pagination.prev"
+      color="primary"
+      (click)="onLoadPrev()"
+    >
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </div>
+  <div>
+    <button
+      mat-fab
+      [disabled]="!pagination.next"
+      color="primary"
+      (click)="onLoadNext()"
+    >
+      <mat-icon>arrow_forward</mat-icon>
+    </button>
+  </div>
+</section>

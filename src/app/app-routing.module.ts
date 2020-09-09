@@ -5,7 +5,7 @@ import { OfferItemComponent } from './offers/offer-item/offer-item.component';
 import { OffersListComponent } from './offers/offers-list/offers-list.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'offers', pathMatch: 'full' },
+  { path: '', redirectTo: 'offers?page=1', pathMatch: 'full' },
   { path: 'offers', component: OffersListComponent },
   { path: 'offers/:slug', component: OfferItemComponent },
 ];

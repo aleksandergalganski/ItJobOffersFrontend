@@ -12,15 +12,19 @@ import { OfferSearch } from './offer-search.model';
 export class OffersService {
   constructor(private httpClient: HttpClient) {}
 
-  getAllOffers(): Observable<Offer[]> {
-    return this.httpClient.get('http://localhost:5000/api/v1/offers').pipe(
-      map((res: { success: boolean; data: Offer[] }) => {
-        return res.data;
-      })
+  getAllOffers(page: number = 1): Observable<PaginationReponse> {
+    return this.httpClient.get<PaginationReponse>(
+      'http://localhost:5000/api/v1/offers',
+      {
+        params: new HttpParams().set('page', page.toString()),
+      }
     );
   }
 
-  searchForOffers(offersSearch: OfferSearch): Observable<Offer[]> {
+  searchForOffers(
+    offersSearch: OfferSearch,
+    page: number = 1
+  ): Observable<Offer[]> {
     let params = new HttpParams();
 
     if (offersSearch.category) {
@@ -84,4 +88,20 @@ export class OffersService {
   deleteOffer(id: string): Observable<any> {
     return this.httpClient.delete(`api/v1/offers/${id}`);
   }
+}
+
+export interface PaginationReponse {
+  success: boolean;
+  count: number;
+  pagination: {
+    next?: {
+      page: number;
+      limit: number;
+    };
+    prev?: {
+      page: number;
+      limit: number;
+    };
+  };
+  data: Offer[];
 }
