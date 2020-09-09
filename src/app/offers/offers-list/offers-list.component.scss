@@ -122,3 +122,37 @@ button {
   justify-content: center;
   padding: 20px 0;
 }
+
+@media (max-width: 576px) {
+  .offers__list {
+    grid-template-columns: 1fr;
+  }
+
+  .offer {
+    &__musthave {
+      display: none;
+    }
+
+    &__apply {
+      margin-top: 5px;
+    }
+  }
+
+  .search-section {
+    flex-direction: column;
+  }
+
+  mat-form-field {
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .reset-button {
+    margin-top: 5px;
+    width: 100%;
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 992px) {
+}

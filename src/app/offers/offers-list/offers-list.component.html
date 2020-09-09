@@ -56,7 +56,12 @@
       (change)="onChangeInput()"
       >{{ "SEARCH.REMOTE" | translate }}</mat-checkbox
     >
-    <button (click)="onResetAll()" mat-raised-button color="primary">
+    <button
+      (click)="onResetAll()"
+      mat-raised-button
+      color="primary"
+      class="reset-button"
+    >
       Reset All
     </button>
   </section>
