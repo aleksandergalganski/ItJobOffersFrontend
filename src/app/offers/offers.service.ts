@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Offer } from './offer.model';
+import { OfferSearch } from './offer-search.model';
 
 @Injectable({
   providedIn: 'root',
@@ -17,6 +18,43 @@ export class OffersService {
         return res.data;
       })
     );
+  }
+
+  searchForOffers(offersSearch: OfferSearch): Observable<Offer[]> {
+    let params = new HttpParams();
+
+    if (offersSearch.category) {
+      params = params.append('category[in]', offersSearch.category);
+    }
+
+    if (offersSearch.city) {
+      params = params.append('city[in]', offersSearch.city);
+    }
+
+    if (offersSearch.technology) {
+      params = params.append('mustHave[in]', offersSearch.technology);
+    }
+
+    if (offersSearch.experienceLevel) {
+      params = params.append(
+        'experienceLevel[in]',
+        offersSearch.experienceLevel
+      );
+    }
+
+    if (offersSearch.isRemote) {
+      params = params.append('isRemote', offersSearch.isRemote.toString());
+    }
+
+    return this.httpClient
+      .get('http://localhost:5000/api/v1/offers', {
+        params: params,
+      })
+      .pipe(
+        map((res: { success: boolean; data: Offer[] }) => {
+          return res.data;
+        })
+      );
   }
 
   getOfferById(id: string): Observable<Offer> {

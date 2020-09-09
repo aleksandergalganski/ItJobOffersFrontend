@@ -1,31 +1,95 @@
 <div class="container">
+  <section class="search-section">
+    <mat-form-field>
+      <mat-label>{{ "SEARCH.CITY" | translate }}</mat-label>
+      <mat-select
+        #city
+        [(ngModel)]="offerSearch.city"
+        (selectionChange)="onChangeInput()"
+      >
+        <mat-option *ngFor="let city of cities" [value]="city">
+          {{ city }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>{{ "SEARCH.CATEGORY" | translate }}</mat-label>
+      <mat-select
+        #category
+        [(ngModel)]="offerSearch.category"
+        (selectionChange)="onChangeInput()"
+      >
+        <mat-option *ngFor="let category of categories" [value]="category">
+          {{ category }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>{{ "SEARCH.TECHNOLOGY" | translate }}</mat-label>
+      <mat-select
+        #technology
+        [(ngModel)]="offerSearch.technology"
+        (selectionChange)="onChangeInput()"
+      >
+        <mat-option
+          *ngFor="let technology of technologies"
+          [value]="technology"
+        >
+          {{ technology }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>{{ "SEARCH.EXP_LEVEL" | translate }}</mat-label>
+      <mat-select
+        [(ngModel)]="offerSearch.experienceLevel"
+        (selectionChange)="onChangeInput()"
+        #experienceLevel
+      >
+        <mat-option *ngFor="let level of levels" [value]="level">
+          {{ level }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-checkbox
+      [(ngModel)]="offerSearch.isRemote"
+      (change)="onChangeInput()"
+      >{{ "SEARCH.REMOTE" | translate }}</mat-checkbox
+    >
+    <button (click)="onResetAll()" mat-raised-button color="primary">
+      Reset All
+    </button>
+  </section>
   <div class="spinner-wrapper" *ngIf="isLoading">
     <mat-spinner></mat-spinner>
   </div>
   <section class="offers__list" *ngIf="!isLoading">
     <div class="offer" *ngFor="let offer of offers">
-      <h3 class="offer__name">{{ offer.name }}</h3>
+      <h2 class="offer__name">{{ offer.name }}</h2>
       <p class="offer__expLevel">{{ offer.experienceLevel }}</p>
-      <p class="offer__salary">
-        {{ offer.salaryMin }} - {{ offer.salaryMax }} PLN
+      <p class="offer__salary flexAlignCenter">
+        <mat-icon>money</mat-icon> {{ offer.salaryMin }} -
+        {{ offer.salaryMax }} PLN
       </p>
-      <p *ngIf="!offer.isRemote" class="offer__location"><b>Gdansk</b></p>
+      <p *ngIf="!offer.isRemote" class="offer__location flexAlignCenter">
+        <mat-icon>home</mat-icon><b>Gdansk</b>
+      </p>
       <p *ngIf="offer.isRemote" class="offer__remote">
         {{ "OFFER.REMOTE" | translate }}
       </p>
-      <small class="offer__created">{{
-        offer.createdAt | date: "shortDate"
-      }}</small>
+      <small class="offer__created flexAlignCenter"
+        ><mat-icon>today</mat-icon
+        >{{ offer.createdAt | date: "shortDate" }}</small
+      >
       <img
         src="https://www.logaster.com/blog/wp-content/uploads/2018/05/Graphicsprings.png"
         alt=""
         class="offer__companyLogo"
       />
       <p class="offer__companyName">{{ offer.company.name }}</p>
-      <p class="offer__city"></p>
       <ul class="offer__musthave">
         <li
-          *ngFor="let must of offer.mustHave | slice: 0:3"
+          *ngFor="let must of offer.mustHave | slice: 0:4"
           class="offer__musthave__item"
         >
           {{ must }}

@@ -2,12 +2,19 @@
   "HEADER": {
     "OFFERS": "Offers",
     "COMPANIES": "Companies",
-    "ABOUT": "About",
+    "ADDOFFER": "Add Offer",
     "REGISTER": "Register",
     "LOGIN": "Login"
   },
   "OFFER": {
     "APPLY": "Apply",
+    "REMOTE": "Remote"
+  },
+  "SEARCH": {
+    "CITY": "City",
+    "CATEGORY": "Category",
+    "TECHNOLOGY": "Technology",
+    "EXP_LEVEL": "Experience",
     "REMOTE": "Remote"
   }
 }

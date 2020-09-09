@@ -1,0 +1,20 @@
+@import "~@angular/material/theming";
+
+@include mat-core();
+
+$job-offers-primary: mat-palette($mat-cyan);
+$job-offers-accent: mat-palette($mat-teal, A200, A100, A400);
+
+$job-offers-warn: mat-palette($mat-red);
+
+$job-offers-theme: mat-light-theme(
+  (
+    color: (
+      primary: $job-offers-primary,
+      accent: $job-offers-accent,
+      warn: $job-offers-warn,
+    ),
+  )
+);
+
+@include angular-material-theme($job-offers-theme);

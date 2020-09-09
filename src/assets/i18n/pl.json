@@ -2,12 +2,19 @@
   "HEADER": {
     "OFFERS": "Ogłoszenia",
     "COMPANIES": "Pracodawcy",
-    "ABOUT": "O nas",
+    "ADDOFFER": "Dodaj Ofertę",
     "REGISTER": "Rejestracja",
     "LOGIN": "Zaloguj"
   },
   "OFFER": {
     "APPLY": "Aplikuj",
+    "REMOTE": "Zdalnie"
+  },
+  "SEARCH": {
+    "CITY": "Miasto",
+    "CATEGORY": "Kategoria",
+    "TECHNOLOGY": "Technologie",
+    "EXP_LEVEL": "Doświadczenie",
     "REMOTE": "Zdalnie"
   }
 }
