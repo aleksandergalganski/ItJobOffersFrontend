@@ -124,6 +124,10 @@ button {
 }
 
 @media (max-width: 576px) {
+  .search-section {
+    flex-direction: column;
+  }
+
   .offers__list {
     grid-template-columns: 1fr;
   }
@@ -138,21 +142,35 @@ button {
     }
   }
 
-  .search-section {
-    flex-direction: column;
-  }
-
   mat-form-field {
     margin-right: 0;
     width: 100%;
   }
 
   .reset-button {
-    margin-top: 5px;
+    margin-top: 10px;
     width: 100%;
     font-size: 20px;
   }
 }
 
 @media (min-width: 577px) and (max-width: 992px) {
+  .offers__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .search-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
+  .search-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .offers__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
