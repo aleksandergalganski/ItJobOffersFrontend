@@ -9,8 +9,12 @@
       <div class="offer__info">
         <p class="offer__experienceLevel">{{ offer.experienceLevel }}</p>
         <p class="offer__category">{{ offer.category }}</p>
-        <p class="offer__observe flexAlignCenter">
-          <mat-icon class="mr-5">grade</mat-icon>Obserwuj
+        <p
+          class="offer__observe flexAlignCenter"
+          (click)="onAddToWatchOffers()"
+        >
+          <mat-icon class="mr-5">grade</mat-icon>
+          {{ "OFFER_ITEM.WATCH" | translate }}
         </p>
         <p class="offer__salary flexAlignCenter">
           <mat-icon class="mr-5">money</mat-icon
@@ -25,7 +29,9 @@
         </p>
         <p class="offer__remote" *ngIf="offer.isRemote"></p>
       </div>
-      <h3 class="offer__section-title">Must Have</h3>
+      <h3 class="offer__section-title">
+        {{ "OFFER_ITEM.MUST_HAVE" | translate }}
+      </h3>
       <mat-chip-list>
         <mat-chip
           color="primary"
@@ -34,7 +40,9 @@
           >{{ item }}</mat-chip
         >
       </mat-chip-list>
-      <h3 class="offer__section-title">Nice To Have</h3>
+      <h3 class="offer__section-title">
+        {{ "OFFER_ITEM.NICE_TO_HAVE" | translate }}
+      </h3>
       <mat-chip-list class="offer__nicetohave">
         <mat-chip
           color="accent"
@@ -43,7 +51,9 @@
           >{{ item }}</mat-chip
         >
       </mat-chip-list>
-      <h3 class="offer__section-title">Description</h3>
+      <h3 class="offer__section-title">
+        {{ "OFFER_ITEM.DESCRIPTION" | translate }}
+      </h3>
       <p class="offer__description">
         {{ offer.description }}
       </p>
@@ -55,13 +65,18 @@
           alt="{{ offer.company.name }}"
           class="company__logo"
         />
-        <p class="company__name">
-          Company Name: <a>{{ offer.company.name }}</a>
+        <p class="company__name mtb-10">
+          <small>{{ "OFFER_ITEM.COMPANY_NAME" | translate }}:</small>&nbsp;
+          <a>{{ offer.company.name }}</a>
         </p>
-        <p class="company__size">
-          Company Size: {{ offer.company.companySize }}
+        <p class="company__size mtb-10">
+          <small>{{ "OFFER_ITEM.COMPANY_SIZE" | translate }}:</small> &nbsp;{{
+            offer.company.companySize
+          }}
         </p>
-        <p>{{ offer.company.description }}</p>
+        <p class="company__description mtb-10">
+          {{ offer.company.description }}
+        </p>
       </div>
     </mat-card>
   </section>

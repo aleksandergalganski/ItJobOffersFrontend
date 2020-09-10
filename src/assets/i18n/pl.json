@@ -4,7 +4,8 @@
     "COMPANIES": "Pracodawcy",
     "ADDOFFER": "Dodaj Ofertę",
     "REGISTER": "Rejestracja",
-    "LOGIN": "Zaloguj"
+    "LOGIN": "Zaloguj",
+    "SAVED": "Obserwowane"
   },
   "OFFER": {
     "APPLY": "Aplikuj",
@@ -30,5 +31,17 @@
     "PASSWORD": "Hasło",
     "CONFIRM_PASSWORD": "Potwierdź Hasło",
     "CREATE": "Stwórz"
+  },
+  "OFFER_ITEM": {
+    "WATCH": "Obserwuj",
+    "MUST_HAVE": "Wymagane",
+    "NICE_TO_HAVE": "Mile Widziane",
+    "DESCRIPTION": "Krótki Opis",
+    "COMPANY_NAME": "Nazwa Firmy",
+    "COMPANY_SIZE": "Liczba Pracowników"
+  },
+  "SAVED": {
+    "NO_OFFERS": "Nie obserwujesz w tym momencie żadnych ofert",
+    "YOUR_SAVED_OFFERS": "Twoje Obserwowane Oferty Pracy"
   }
 }

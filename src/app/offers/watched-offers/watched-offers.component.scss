@@ -1,0 +1,17 @@
+mat-card {
+  margin: 20px;
+}
+
+img {
+  margin-right: 10px;
+}
+
+@media (max-width: 576px) {
+  mat-card {
+    margin: 10px 1px;
+  }
+
+  .extra-info {
+    display: none;
+  }
+}

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Offer } from './offer.model';
@@ -10,6 +10,10 @@ import { OfferSearch } from './offer-search.model';
   providedIn: 'root',
 })
 export class OffersService {
+  watchedOffersLengthChanged = new BehaviorSubject<number>(
+    this.getWatchedOffersLength()
+  );
+
   constructor(private httpClient: HttpClient) {}
 
   getAllOffers(page: number = 1): Observable<PaginationReponse> {
@@ -102,22 +106,43 @@ export class OffersService {
   addWatchedOffer(offer: Offer) {
     if (localStorage.getItem('watchedOffers')) {
       const offers: Offer[] = JSON.parse(localStorage.getItem('watchedOffers'));
-      const offersStr = JSON.stringify(offers.push(offer));
-      localStorage.setItem('watchedOffers', offersStr);
+
+      const duplicate = offers.find(
+        (offerEl: Offer) => offerEl._id === offer._id
+      );
+
+      if (!duplicate) {
+        offers.push(offer);
+        localStorage.setItem('watchedOffers', JSON.stringify(offers));
+      }
     } else {
       const offersStr = JSON.stringify([offer]);
       localStorage.setItem('watchedOffers', offersStr);
     }
+
+    this.watchedOffersLengthChanged.next(this.getWatchedOffersLength());
   }
 
   deleteWatchedOffer(id: string) {
     let offers: Offer[] = JSON.parse(localStorage.getItem('watchedOffers'));
     offers = offers.filter((offer: Offer) => offer._id !== id);
     localStorage.setItem('watchedOffers', JSON.stringify(offers));
+
+    this.watchedOffersLengthChanged.next(this.getWatchedOffersLength());
   }
 
   getWatchedOffers(): Offer[] {
     return JSON.parse(localStorage.getItem('watchedOffers'));
+  }
+
+  getWatchedOffersLength(): number {
+    const offers = JSON.parse(localStorage.getItem('watchedOffers'));
+
+    if (offers) {
+      return JSON.parse(localStorage.getItem('watchedOffers')).length;
+    }
+
+    return 0;
   }
 }
 

@@ -17,9 +17,10 @@
             <a routerLink="/offers">{{ "HEADER.OFFERS" | translate }}</a>
           </li>
           <li class="nav__item nav__item--observe">
-            <a
-              ><mat-icon matBadge="1" matBadgeColor="accent">star</mat-icon
-              >Obserwowane</a
+            <a routerLink="/watchedoffers"
+              ><mat-icon [matBadge]="watchedfOffersLen" matBadgeColor="accent"
+                >star</mat-icon
+              >{{ "HEADER.SAVED" | translate }}</a
             >
           </li>
           <li class="nav__item">

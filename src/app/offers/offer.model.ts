@@ -20,5 +20,6 @@ export interface Offer {
     logo: string;
     name: string;
     companySize: string;
+    description: string;
   };
 }

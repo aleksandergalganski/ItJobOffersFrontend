@@ -1,0 +1,27 @@
+<section class="offers">
+  <div class="container">
+    <mat-card>
+      <mat-nav-list *ngIf="offers.length > 0">
+        <h1 matSubheader>{{ "SAVED.YOUR_SAVED_OFFERS" | translate }}</h1>
+        <mat-list-item *ngFor="let offer of offers">
+          <img matListAvatar src="../../../assets/img/company.png" alt="..." />
+          <a matLine [routerLink]="['/offers', offer.slug]">
+            <span>
+              {{ offer.name }}
+              <span class="extra-info">
+                - {{ offer.company.name }} ({{ offer.salaryMin }} -
+                {{ offer.salaryMax }})
+              </span>
+            </span>
+          </a>
+          <button mat-icon-button (click)="onDeleteOffer(offer._id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-list-item>
+      </mat-nav-list>
+      <h3 *ngIf="offers.length === 0" style="text-align: center">
+        {{ "SAVED.NO_OFFERS" | translate }}
+      </h3>
+    </mat-card>
+  </div>
+</section>

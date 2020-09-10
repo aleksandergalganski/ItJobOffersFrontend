@@ -24,9 +24,12 @@ export class OfferItemComponent implements OnInit {
         .getOfferBySlug(params.slug)
         .subscribe((offer: Offer) => {
           this.offer = offer;
-          console.log(this.offer);
           this.isLoading = false;
         });
     });
+  }
+
+  onAddToWatchOffers() {
+    this.offfersService.addWatchedOffer(this.offer);
   }
 }

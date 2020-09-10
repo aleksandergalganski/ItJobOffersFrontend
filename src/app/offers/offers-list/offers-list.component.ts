@@ -54,7 +54,6 @@ export class OffersListComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
       this.isLoading = true;
-      console.log(params);
       this.offersService.getAllOffers(params.page).subscribe((res: any) => {
         this.offers = res.data;
         this.pagination = res.pagination;

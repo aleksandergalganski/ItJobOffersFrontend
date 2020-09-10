@@ -8,11 +8,13 @@ import { CompanyItemComponent } from './companies/company-item/company-item.comp
 import { AddOfferComponent } from './offers/add-offer/add-offer.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
+import { WatchedOffersComponent } from './offers/watched-offers/watched-offers.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'offers?page=1', pathMatch: 'full' },
   { path: 'offers', component: OffersListComponent },
   { path: 'offers/:slug', component: OfferItemComponent },
+  { path: 'watchedoffers', component: WatchedOffersComponent },
   { path: 'companies', component: CompaniesListComponent },
   { path: 'companies/:slug', component: CompanyItemComponent },
   { path: 'addoffer', component: AddOfferComponent },

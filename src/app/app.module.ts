@@ -19,6 +19,7 @@ import { CompaniesListComponent } from './companies/companies-list/companies-lis
 import { CompanyItemComponent } from './companies/company-item/company-item.component';
 import { AddOfferComponent } from './offers/add-offer/add-offer.component';
 import { OfferApplyComponent } from './offers/offer-apply/offer-apply.component';
+import { WatchedOffersComponent } from './offers/watched-offers/watched-offers.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { OfferApplyComponent } from './offers/offer-apply/offer-apply.component'
     CompanyItemComponent,
     AddOfferComponent,
     OfferApplyComponent,
+    WatchedOffersComponent,
   ],
   imports: [
     BrowserModule,
