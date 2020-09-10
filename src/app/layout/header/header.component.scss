@@ -23,7 +23,7 @@
 }
 
 .nav__item {
-  margin-right: 15px;
+  margin-right: 20px;
   cursor: pointer;
 
   a {
@@ -50,10 +50,22 @@
       }
     }
   }
+
+  &--observe {
+    mat-icon {
+      margin-right: 10px;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+    }
+  }
 }
 
 .menu {
   display: flex;
+  transform: translateX(0);
 }
 
 .flag {
@@ -67,7 +79,7 @@
   cursor: pointer;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 950px) {
   .burger {
     display: block;
   }

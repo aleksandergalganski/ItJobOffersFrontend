@@ -69,6 +69,16 @@ export class OffersService {
     );
   }
 
+  getOfferBySlug(slug: string): Observable<Offer> {
+    return this.httpClient
+      .get(`http://localhost:5000/api/v1/offers/slug/${slug}`)
+      .pipe(
+        map((res: { success: boolean; data: Offer }) => {
+          return res.data;
+        })
+      );
+  }
+
   createOffer(offer: Offer): Observable<Offer> {
     return this.httpClient.post('api/v1/offers', offer).pipe(
       map((res: { success: boolean; data: Offer }) => {
@@ -87,6 +97,27 @@ export class OffersService {
 
   deleteOffer(id: string): Observable<any> {
     return this.httpClient.delete(`api/v1/offers/${id}`);
+  }
+
+  addWatchedOffer(offer: Offer) {
+    if (localStorage.getItem('watchedOffers')) {
+      const offers: Offer[] = JSON.parse(localStorage.getItem('watchedOffers'));
+      const offersStr = JSON.stringify(offers.push(offer));
+      localStorage.setItem('watchedOffers', offersStr);
+    } else {
+      const offersStr = JSON.stringify([offer]);
+      localStorage.setItem('watchedOffers', offersStr);
+    }
+  }
+
+  deleteWatchedOffer(id: string) {
+    let offers: Offer[] = JSON.parse(localStorage.getItem('watchedOffers'));
+    offers = offers.filter((offer: Offer) => offer._id !== id);
+    localStorage.setItem('watchedOffers', JSON.stringify(offers));
+  }
+
+  getWatchedOffers(): Offer[] {
+    return JSON.parse(localStorage.getItem('watchedOffers'));
   }
 }
 

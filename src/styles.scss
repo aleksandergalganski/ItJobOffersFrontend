@@ -34,6 +34,21 @@ a {
   overflow: hidden;
 }
 
+.spinner-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.flexAlignCenter {
+  display: flex;
+  align-items: center;
+}
+
+.mr-5 {
+  margin-right: 5px;
+}
+
 $header-background-color: #f8f8f8;
 $background-color: #fff;
 $primary-color: #fff;

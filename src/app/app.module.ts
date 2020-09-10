@@ -18,6 +18,7 @@ import { MaterialModule } from './material.module';
 import { CompaniesListComponent } from './companies/companies-list/companies-list.component';
 import { CompanyItemComponent } from './companies/company-item/company-item.component';
 import { AddOfferComponent } from './offers/add-offer/add-offer.component';
+import { OfferApplyComponent } from './offers/offer-apply/offer-apply.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { AddOfferComponent } from './offers/add-offer/add-offer.component';
     CompaniesListComponent,
     CompanyItemComponent,
     AddOfferComponent,
+    OfferApplyComponent,
   ],
   imports: [
     BrowserModule,

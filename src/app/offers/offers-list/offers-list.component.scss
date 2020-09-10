@@ -27,7 +27,7 @@
   &__name {
     text-align: center;
     font-size: 20px;
-    color: darken(#31e8e8, 10%);
+    // color: darken(#31e8e8, 10%);
   }
 
   &__expLevel {
@@ -85,17 +85,6 @@
       border: 1px solid darken(#31e8e8, 10%);
     }
   }
-}
-
-.spinner-wrapper {
-  display: flex;
-  justify-content: center;
-  padding: 10px 0;
-}
-
-.flexAlignCenter {
-  display: flex;
-  align-items: center;
 }
 
 mat-icon {

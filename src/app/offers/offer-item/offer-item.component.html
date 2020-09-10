@@ -1,1 +1,68 @@
-<p>offer-item works!</p>
+<div *ngIf="isLoading" class="spinner-wrapper">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div class="container">
+  <section class="offer-container" *ngIf="!isLoading">
+    <mat-card class="offer">
+      <h1 class="offer__name">{{ offer.name }}</h1>
+      <div class="offer__info">
+        <p class="offer__experienceLevel">{{ offer.experienceLevel }}</p>
+        <p class="offer__category">{{ offer.category }}</p>
+        <p class="offer__observe flexAlignCenter">
+          <mat-icon class="mr-5">grade</mat-icon>Obserwuj
+        </p>
+        <p class="offer__salary flexAlignCenter">
+          <mat-icon class="mr-5">money</mat-icon
+          ><span>{{ offer.salaryMin }} - {{ offer.salaryMax }} </span>
+        </p>
+        <small class="offer__date flexAlignCenter"
+          ><mat-icon class="mr-5">today</mat-icon
+          ><span>{{ offer.createdAt | date: "shortDate" }} </span></small
+        >
+        <p class="offer__city flexAlignCenter" *ngIf="!offer.isRemote">
+          <mat-icon class="mr-5">explore</mat-icon><span>{{ offer.city }}</span>
+        </p>
+        <p class="offer__remote" *ngIf="offer.isRemote"></p>
+      </div>
+      <h3 class="offer__section-title">Must Have</h3>
+      <mat-chip-list>
+        <mat-chip
+          color="primary"
+          selected
+          *ngFor="let item of offer.mustHave"
+          >{{ item }}</mat-chip
+        >
+      </mat-chip-list>
+      <h3 class="offer__section-title">Nice To Have</h3>
+      <mat-chip-list class="offer__nicetohave">
+        <mat-chip
+          color="accent"
+          selected
+          *ngFor="let item of offer.niceToHave"
+          >{{ item }}</mat-chip
+        >
+      </mat-chip-list>
+      <h3 class="offer__section-title">Description</h3>
+      <p class="offer__description">
+        {{ offer.description }}
+      </p>
+    </mat-card>
+    <mat-card class="company">
+      <div class="company__info">
+        <img
+          src="../../../assets/img/company.png"
+          alt="{{ offer.company.name }}"
+          class="company__logo"
+        />
+        <p class="company__name">
+          Company Name: <a>{{ offer.company.name }}</a>
+        </p>
+        <p class="company__size">
+          Company Size: {{ offer.company.companySize }}
+        </p>
+        <p>{{ offer.company.description }}</p>
+      </div>
+    </mat-card>
+  </section>
+</div>
