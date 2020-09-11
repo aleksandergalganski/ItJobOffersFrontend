@@ -5,7 +5,9 @@
     "ADDOFFER": "Dodaj Ofertę",
     "REGISTER": "Rejestracja",
     "LOGIN": "Zaloguj",
-    "SAVED": "Obserwowane"
+    "SAVED": "Obserwowane",
+    "MY_OFFERS": "Moje Oferty",
+    "LOGOUT": "Wyloguj się"
   },
   "OFFER": {
     "APPLY": "Aplikuj",
@@ -23,7 +25,13 @@
     "PASSWORD": "Hasło",
     "EMAIL": "Email",
     "LOGIN": "Zaloguj Się",
-    "SUBMIT": "Zatwierdź"
+    "SUBMIT": "Zatwierdź",
+    "PASSWORD_REQUIRED": "Hasło jest wymagane",
+    "EMAIL_REQUIRED": "Email jest wymagany",
+    "INVALID_EMAIL": "Niepoprawny adres email",
+    "PASSWORD_LENGTH_ERROR": "Hasło musi mieć co najmniej 8 znaków",
+    "INVALID_CREDENTIALS": "Niepoprawne dane logowania",
+    "TRY_AGAIN": "Spróbuj Ponownie"
   },
   "REGISTER": {
     "REGISTER": "Stwórz Konto",

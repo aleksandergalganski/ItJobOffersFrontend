@@ -1,14 +1,42 @@
 <section class="login">
   <h2 class="login__title">{{ "LOGIN.LOGIN" | translate }}</h2>
-  <form class="login__form">
+  <form class="login__form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <mat-form-field>
       <mat-label>{{ "LOGIN.EMAIL" | translate }}</mat-label>
-      <input matInput placeholder="Please add an email" type="email" />
+      <input
+        matInput
+        name="email"
+        formControlName="email"
+        placeholder="Please add an email"
+        type="email"
+      />
+      <div *ngIf="email.invalid && (email.dirty || email.touched)">
+        <mat-error *ngIf="email.errors.required">
+          <small>{{ "LOGIN.EMAIL_REQUIRED" | translate }} </small>
+        </mat-error>
+        <mat-error *ngIf="email.errors.email">
+          <small>{{ "LOGIN.INVALID_EMAIL" | translate }}</small>
+        </mat-error>
+      </div>
       <mat-icon matSuffix>email</mat-icon>
     </mat-form-field>
     <mat-form-field>
       <mat-label>{{ "LOGIN.PASSWORD" | translate }}</mat-label>
-      <input matInput placeholder="Please add a password" type="password" />
+      <input
+        matInput
+        name="password"
+        formControlName="password"
+        placeholder="Please add a password"
+        type="password"
+      />
+      <div *ngIf="password.invalid && (password.dirty || password.touched)">
+        <mat-error *ngIf="password.errors.required">
+          <small>{{ "LOGIN.PASSWORD_REQUIRED" | translate }}</small>
+        </mat-error>
+        <mat-error *ngIf="password.errors.minlength">
+          <small> {{ "LOGIN.PASSWORD_LENGTH_ERROR" | translate }}</small>
+        </mat-error>
+      </div>
       <mat-icon matSuffix>vpn_key</mat-icon>
     </mat-form-field>
 
@@ -17,8 +45,12 @@
       color="primary"
       type="submit"
       class="login__button"
+      [disabled]="!loginForm.valid"
     >
       {{ "LOGIN.SUBMIT" | translate }}
     </button>
   </form>
+  <div class="spinner-wrapper">
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+  </div>
 </section>

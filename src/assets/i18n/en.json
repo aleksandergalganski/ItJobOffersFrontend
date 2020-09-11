@@ -5,7 +5,9 @@
     "ADDOFFER": "Add Offer",
     "REGISTER": "Register",
     "LOGIN": "Login",
-    "SAVED": "Saved"
+    "SAVED": "Saved",
+    "MY_OFFERS": "My Offers",
+    "LOGOUT": "Logout"
   },
   "OFFER": {
     "APPLY": "Apply",
@@ -23,7 +25,13 @@
     "PASSWORD": "Password",
     "EMAIL": "Email",
     "LOGIN": "Log In",
-    "SUBMIT": "Submit"
+    "SUBMIT": "Submit",
+    "PASSWORD_REQUIRED": "Password is required",
+    "EMAIL_REQUIRED": "Email is required",
+    "INVALID_EMAIL": "Invalid email address",
+    "PASSWORD_LENGTH_ERROR": "Password must be at least 8 characters",
+    "INVALID_CREDENTIALS": "Invalid credentials",
+    "TRY_AGAIN": "Try Again"
   },
   "REGISTER": {
     "REGISTER": "Create Account",

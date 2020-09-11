@@ -8,7 +8,8 @@ import {
 import { TranslateService } from '@ngx-translate/core';
 
 import { OffersService } from 'src/app/offers/offers.service';
-import { Observable, of, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -18,17 +19,25 @@ import { Observable, of, Subscription } from 'rxjs';
 export class HeaderComponent implements OnInit, OnDestroy {
   mobileMenuSelected: boolean = false;
   watchedfOffersLenSubscribption: Subscription;
+  isAuth: boolean = false;
+  authSubscription: Subscription;
   watchedfOffersLen: number = 0;
   @ViewChild('menu', { static: true }) menu: ElementRef;
   constructor(
     private translateService: TranslateService,
-    private offersService: OffersService
+    private offersService: OffersService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
     this.watchedfOffersLenSubscribption = this.offersService.watchedOffersLengthChanged.subscribe(
       (offersLen) => {
         this.watchedfOffersLen = offersLen;
+      }
+    );
+    this.authSubscription = this.authService.isLoginSubject.subscribe(
+      (isAuth) => {
+        this.isAuth = isAuth;
       }
     );
   }
@@ -59,9 +68,17 @@ export class HeaderComponent implements OnInit, OnDestroy {
     }
   }
 
+  onLogout() {
+    this.authService.logout();
+  }
+
   ngOnDestroy() {
     if (this.watchedfOffersLenSubscribption) {
       this.watchedfOffersLenSubscribption.unsubscribe();
+    }
+
+    if (this.authSubscription) {
+      this.authSubscription.unsubscribe();
     }
   }
 }

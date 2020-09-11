@@ -4,7 +4,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +20,7 @@ import { CompanyItemComponent } from './companies/company-item/company-item.comp
 import { AddOfferComponent } from './offers/add-offer/add-offer.component';
 import { OfferApplyComponent } from './offers/offer-apply/offer-apply.component';
 import { WatchedOffersComponent } from './offers/watched-offers/watched-offers.component';
+import { UserDashboardComponent } from './dashboard/user-dashboard/user-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { WatchedOffersComponent } from './offers/watched-offers/watched-offers.c
     AddOfferComponent,
     OfferApplyComponent,
     WatchedOffersComponent,
+    UserDashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +52,7 @@ import { WatchedOffersComponent } from './offers/watched-offers/watched-offers.c
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
