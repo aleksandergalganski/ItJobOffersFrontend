@@ -103,7 +103,7 @@ export class OffersService {
     return this.httpClient.delete(`api/v1/offers/${id}`);
   }
 
-  addWatchedOffer(offer: Offer) {
+  addWatchedOffer(offer: Offer): boolean {
     if (localStorage.getItem('watchedOffers')) {
       const offers: Offer[] = JSON.parse(localStorage.getItem('watchedOffers'));
 
@@ -114,13 +114,16 @@ export class OffersService {
       if (!duplicate) {
         offers.push(offer);
         localStorage.setItem('watchedOffers', JSON.stringify(offers));
+        this.watchedOffersLengthChanged.next(this.getWatchedOffersLength());
+        return true;
       }
+      return false;
     } else {
       const offersStr = JSON.stringify([offer]);
       localStorage.setItem('watchedOffers', offersStr);
+      this.watchedOffersLengthChanged.next(this.getWatchedOffersLength());
+      return true;
     }
-
-    this.watchedOffersLengthChanged.next(this.getWatchedOffersLength());
   }
 
   deleteWatchedOffer(id: string) {

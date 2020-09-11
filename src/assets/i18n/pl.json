@@ -38,10 +38,13 @@
     "NICE_TO_HAVE": "Mile Widziane",
     "DESCRIPTION": "Krótki Opis",
     "COMPANY_NAME": "Nazwa Firmy",
-    "COMPANY_SIZE": "Liczba Pracowników"
+    "COMPANY_SIZE": "Liczba Pracowników",
+    "MESSAGE_SUCCESS": "Dodano Do Oberwowanych Ofert",
+    "MESSAGE_ERROR": "Dodano tą ofertę wcześniej"
   },
   "SAVED": {
     "NO_OFFERS": "Nie obserwujesz w tym momencie żadnych ofert",
-    "YOUR_SAVED_OFFERS": "Twoje Obserwowane Oferty Pracy"
+    "YOUR_SAVED_OFFERS": "Twoje Obserwowane Oferty Pracy",
+    "DELETE_MESSAGE": "Usunięto z obserwowanych"
   }
 }

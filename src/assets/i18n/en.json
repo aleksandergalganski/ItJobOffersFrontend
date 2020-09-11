@@ -38,10 +38,13 @@
     "NICE_TO_HAVE": "Nice To Have",
     "DESCRIPTION": "Description",
     "COMPANY_NAME": "Company Name",
-    "COMPANY_SIZE": "Company Size"
+    "COMPANY_SIZE": "Company Size",
+    "MESSAGE_SUCCESS": "Added to saved offers",
+    "MESSAGE_ERROR": "Added this before"
   },
   "SAVED": {
     "NO_OFFERS": "At This Moment You Dont'have Any Saved Job Offers.",
-    "YOUR_SAVED_OFFERS": "Your Saved Job Offers"
+    "YOUR_SAVED_OFFERS": "Your Saved Job Offers",
+    "DELETE_MESSAGE": "Delete from saved offers"
   }
 }

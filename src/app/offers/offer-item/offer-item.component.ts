@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 
 import { OffersService } from '../offers.service';
 import { Offer } from '../offer.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-offer-item',
@@ -15,7 +17,9 @@ export class OfferItemComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private offfersService: OffersService
+    private offfersService: OffersService,
+    private snackBar: MatSnackBar,
+    private translateService: TranslateService
   ) {}
 
   ngOnInit(): void {
@@ -30,6 +34,19 @@ export class OfferItemComponent implements OnInit {
   }
 
   onAddToWatchOffers() {
-    this.offfersService.addWatchedOffer(this.offer);
+    const result = this.offfersService.addWatchedOffer(this.offer);
+    const translate = result
+      ? 'OFFER_ITEM.MESSAGE_SUCCESS'
+      : 'OFFER_ITEM.MESSAGE_ERROR';
+
+    this.translateService.get(translate).subscribe((message) => {
+      this.openSnackBar(message);
+    });
+  }
+
+  private openSnackBar(message: string) {
+    this.snackBar.open(message, 'OK', {
+      duration: 2000,
+    });
   }
 }
