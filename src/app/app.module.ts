@@ -5,6 +5,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MaterialFileInputModule } from 'ngx-material-file-input';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -55,6 +56,7 @@ import { SimilarOffersComponent } from './offers/similar-offers/similar-offers.c
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    MaterialFileInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

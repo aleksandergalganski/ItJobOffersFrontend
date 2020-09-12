@@ -65,5 +65,12 @@
   },
   "SIMILAR_OFFERS": {
     "HEADER": "See more from {{ city }} category {{ category }}"
+  },
+  "APPLY": {
+    "APPLY": "Apply",
+    "MESSAGE": "Message",
+    "ATTACH_CV": "Attach Your CV",
+    "SUCESS_MESSAGE": "Application has been sent",
+    "ERROR_MESSAGE": "Application could not been sent"
   }
 }

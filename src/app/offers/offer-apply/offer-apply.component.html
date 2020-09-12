@@ -1,1 +1,40 @@
-<p>offer-apply works!</p>
+<section class="apply">
+  <form [formGroup]="applyForm" (ngSubmit)="onSubmit()" class="form">
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput name="email" formControlName="email" type="email" />
+      <div *ngIf="email.invalid && (email.dirty || email.touched)">
+        <mat-error *ngIf="email.errors.required">
+          <small>{{ "REGISTER.EMAIL_REQUIRED" | translate }} </small>
+        </mat-error>
+        <mat-error *ngIf="email.errors.email">
+          <small>{{ "REGISTER.INVALID_EMAIL" | translate }}</small>
+        </mat-error>
+      </div>
+      <mat-icon matSuffix>email</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>{{ "APPLY.MESSAGE" | translate }}</mat-label>
+      <textarea
+        matInput
+        name="message"
+        formControlName="message"
+        class="form__textarea"
+      ></textarea>
+      <mat-icon matSuffix>description</mat-icon>
+    </mat-form-field>
+    <mat-form-field>
+      <ngx-mat-file-input placeholder="Attach Your CV"></ngx-mat-file-input>
+      <mat-icon matSuffix>folder</mat-icon>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      type="submit"
+      color="primary"
+      class="form__button"
+      [disabled]="!applyForm.valid"
+    >
+      {{ "APPLY.APPLY" | translate }}
+    </button>
+  </form>
+</section>

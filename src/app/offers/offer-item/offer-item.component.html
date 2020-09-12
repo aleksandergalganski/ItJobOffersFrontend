@@ -80,6 +80,7 @@
       </div>
     </mat-card>
   </section>
+  <app-offer-apply *ngIf="!isLoading" [offerId]="offer._id"> </app-offer-apply>
   <app-similar-offers
     *ngIf="!isLoading"
     [city]="offer.city"
