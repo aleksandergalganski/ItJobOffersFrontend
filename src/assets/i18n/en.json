@@ -70,7 +70,8 @@
     "APPLY": "Apply",
     "MESSAGE": "Message",
     "ATTACH_CV": "Attach Your CV",
-    "SUCESS_MESSAGE": "Application has been sent",
-    "ERROR_MESSAGE": "Application could not been sent"
+    "SUCCESS_MESSAGE": "Application has been sent",
+    "ERROR_MESSAGE": "Application could not been sent",
+    "EMAIL_ERROR": "You already sent application for that offer"
   }
 }

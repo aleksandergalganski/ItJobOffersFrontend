@@ -49,4 +49,8 @@ export class AuthService {
   isLoggedIn(): Observable<boolean> {
     return this.isLoginSubject.asObservable();
   }
+
+  getToken() {
+    return localStorage.getItem('token');
+  }
 }

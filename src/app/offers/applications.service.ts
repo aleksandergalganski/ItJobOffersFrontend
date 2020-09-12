@@ -10,9 +10,9 @@ import { Application } from './application.model';
 export class ApplicationsService {
   constructor(private http: HttpClient) {}
 
-  sendApplication(application: Application): Observable<any> {
+  sendApplication(offerId: string, application: Application): Observable<any> {
     return this.http.post(
-      'http://localhost:5000/api/v1/applications',
+      `http://localhost:5000/api/v1/offers/${offerId}/applications`,
       application
     );
   }

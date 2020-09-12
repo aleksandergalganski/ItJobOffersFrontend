@@ -70,7 +70,8 @@
     "APPLY": "Aplikuj",
     "MESSAGE": "Wiadmość",
     "ATTACH_CV": "Dodaj Swoje CV",
-    "SUCESS_MESSAGE": "Aplikacja została wysłana",
-    "ERROR_MESSAGE": "Błąd podczas wysyłania aplikacji"
+    "SUCCESS_MESSAGE": "Aplikacja została wysłana",
+    "ERROR_MESSAGE": "Błąd podczas wysyłania aplikacji",
+    "EMAIL_ERROR": "Nie możesz drugi raz aplikować na to samo stanowisko"
   }
 }

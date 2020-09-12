@@ -38,14 +38,16 @@ export class OfferApplyComponent implements OnInit {
     if (this.applyForm.valid) {
       const { email, message } = this.applyForm.value;
       this.application = { email, message, offer: this.offerId };
-      this.applicationService.sendApplication(this.application).subscribe(
-        (res) => {
-          this.showSuccessSnackBar();
-        },
-        (err) => {
-          this.showErrorSnackBar();
-        }
-      );
+      this.applicationService
+        .sendApplication(this.offerId, this.application)
+        .subscribe(
+          (res) => {
+            this.showSuccessSnackBar();
+          },
+          (err) => {
+            this.showErrorSnackBar(err.error.error);
+          }
+        );
     }
   }
 
@@ -55,8 +57,12 @@ export class OfferApplyComponent implements OnInit {
     });
   }
 
-  private showErrorSnackBar() {
-    this.translateService.get('APPLY.ERROR_MESSAGE').subscribe((text) => {
+  private showErrorSnackBar(apiError: string) {
+    let translateMessage = 'APPLY.ERROR_MESSAGE';
+    if (apiError === 'Duplicated email error') {
+      translateMessage = 'APPLY.EMAIL_ERROR';
+    }
+    this.translateService.get(translateMessage).subscribe((text) => {
       this.snackBarService.showSnackBar(text, 'OK');
     });
   }

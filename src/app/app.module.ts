@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpClientModule,
+  HTTP_INTERCEPTORS,
+} from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -23,6 +27,7 @@ import { OfferApplyComponent } from './offers/offer-apply/offer-apply.component'
 import { WatchedOffersComponent } from './offers/watched-offers/watched-offers.component';
 import { UserDashboardComponent } from './dashboard/user-dashboard/user-dashboard.component';
 import { SimilarOffersComponent } from './offers/similar-offers/similar-offers.component';
+import { AuthInterceptorService } from './auth/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -58,7 +63,13 @@ import { SimilarOffersComponent } from './offers/similar-offers/similar-offers.c
     ReactiveFormsModule,
     MaterialFileInputModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
