@@ -10,6 +10,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
 import { WatchedOffersComponent } from './offers/watched-offers/watched-offers.component';
 import { UserDashboardComponent } from './dashboard/user-dashboard/user-dashboard.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'offers?page=1', pathMatch: 'full' },
@@ -21,7 +22,11 @@ const routes: Routes = [
   { path: 'addoffer', component: AddOfferComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: UserDashboardComponent },
+  {
+    path: 'dashboard',
+    component: UserDashboardComponent,
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({
