@@ -1,10 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
 import { OffersService } from '../offers.service';
 import { Offer } from '../offer.model';
-import { Subscription } from 'rxjs';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { TranslateService } from '@ngx-translate/core';
+import { SnackBarService } from '../../shared/snackbar.service';
 
 @Component({
   selector: 'app-watched-offers',
@@ -17,7 +17,7 @@ export class WatchedOffersComponent implements OnInit, OnDestroy {
 
   constructor(
     private offersService: OffersService,
-    private snackBar: MatSnackBar,
+    private snackBarService: SnackBarService,
     private translateService: TranslateService
   ) {}
 
@@ -37,7 +37,7 @@ export class WatchedOffersComponent implements OnInit, OnDestroy {
   onDeleteOffer(id: string) {
     this.offersService.deleteWatchedOffer(id);
     this.translateService.get('SAVED.DELETE_MESSAGE').subscribe((message) => {
-      this.openSnackBar(message);
+      this.snackBarService.showSnackBar(message, 'OK');
     });
   }
 
@@ -45,11 +45,5 @@ export class WatchedOffersComponent implements OnInit, OnDestroy {
     if (this.offersLengthChangeSubscribtion) {
       this.offersLengthChangeSubscribtion.unsubscribe();
     }
-  }
-
-  private openSnackBar(message: string) {
-    this.snackBar.open(message, 'OK', {
-      duration: 2000,
-    });
   }
 }

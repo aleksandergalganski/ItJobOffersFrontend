@@ -1,24 +1,79 @@
 <section class="register">
   <h2 class="register__title">{{ "REGISTER.REGISTER" | translate }}</h2>
-  <form class="register__form">
+  <form
+    class="register__form"
+    [formGroup]="registerForm"
+    (ngSubmit)="onSubmit()"
+  >
     <mat-form-field>
       <mat-label>{{ "REGISTER.NAME" | translate }}</mat-label>
-      <input matInput placeholder="Please add a name" type="text" />
+      <input
+        matInput
+        name="name"
+        formControlName="name"
+        placeholder="Please add a name"
+        type="text"
+      />
+      <mat-error *ngIf="name.invalid && (name.dirty || name.touched)">
+        <small>{{ "REGISTER.NAME_REQUIRED" | translate }}</small>
+      </mat-error>
       <mat-icon matSuffix>face</mat-icon>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Email</mat-label>
-      <input matInput placeholder="Please add an email" type="email" />
+      <input
+        matInput
+        name="email"
+        formControlName="email"
+        placeholder="Please add an email"
+        type="email"
+      />
+      <div *ngIf="email.invalid && (email.dirty || email.touched)">
+        <mat-error *ngIf="email.errors.required">
+          <small>{{ "REGISTER.EMAIL_REQUIRED" | translate }} </small>
+        </mat-error>
+        <mat-error *ngIf="email.errors.email">
+          <small>{{ "REGISTER.INVALID_EMAIL" | translate }}</small>
+        </mat-error>
+      </div>
       <mat-icon matSuffix>email</mat-icon>
     </mat-form-field>
     <mat-form-field>
       <mat-label>{{ "REGISTER.PASSWORD" | translate }}</mat-label>
-      <input matInput placeholder="Please add a password" type="password" />
+      <input
+        matInput
+        name="password"
+        formControlName="password"
+        placeholder="Please add a password"
+        type="password"
+      />
+      <div *ngIf="password.invalid && (password.dirty || password.touched)">
+        <mat-error *ngIf="password.errors.required">
+          <small>{{ "REGISTER.PASSWORD_REQUIRED" | translate }}</small>
+        </mat-error>
+        <mat-error *ngIf="password.errors.minlength">
+          <small> {{ "REGISTER.PASSWORD_LENGTH_ERROR" | translate }}</small>
+        </mat-error>
+      </div>
       <mat-icon matSuffix>vpn_key</mat-icon>
     </mat-form-field>
     <mat-form-field>
       <mat-label>{{ "REGISTER.CONFIRM_PASSWORD" | translate }}</mat-label>
-      <input matInput placeholder="Please confirm password" type="password" />
+      <input
+        matInput
+        name="password2"
+        formControlName="password2"
+        placeholder="Please confirm password"
+        type="password"
+      />
+      <div *ngIf="password2.invalid && (password2.dirty || password2.touched)">
+        <mat-error *ngIf="password2.errors.required">
+          <small>{{ "REGISTER.PASSWORD_REQUIRED" | translate }}</small>
+        </mat-error>
+        <mat-error *ngIf="password2.errors.minlength">
+          <small> {{ "REGISTER.PASSWORD_LENGTH_ERROR" | translate }}</small>
+        </mat-error>
+      </div>
       <mat-icon matSuffix>vpn_key</mat-icon>
     </mat-form-field>
     <button
@@ -26,8 +81,12 @@
       color="primary"
       type="submit"
       class="register__button"
+      [disabled]="!registerForm.valid"
     >
       {{ "REGISTER.CREATE" | translate }}
     </button>
   </form>
+  <div class="spinner-wrapper" *ngIf="isLoading">
+    <mat-spinner></mat-spinner>
+  </div>
 </section>

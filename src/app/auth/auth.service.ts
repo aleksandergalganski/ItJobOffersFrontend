@@ -29,8 +29,15 @@ export class AuthService {
       );
   }
 
-  register(user: User): Observable<any> {
-    return this.httpClient.post('api/v1/auth/register', user);
+  register(userData: {
+    name: string;
+    email: string;
+    password: string;
+  }): Observable<any> {
+    return this.httpClient.post(
+      'http://localhost:5000/api/v1/auth/register',
+      userData
+    );
   }
 
   logout() {

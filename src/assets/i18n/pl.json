@@ -38,7 +38,15 @@
     "NAME": "Nazwa",
     "PASSWORD": "Hasło",
     "CONFIRM_PASSWORD": "Potwierdź Hasło",
-    "CREATE": "Stwórz"
+    "CREATE": "Stwórz",
+    "PASSWORD_ERROR": "Hasła nie są takie same",
+    "DUPLICATE_MESSAGE": "Email lub nazwa są już zajęte",
+    "SUCCESS_MESSAGE": "Sukces!",
+    "NAME_REQUIRED": "Nazwa jest wymagana",
+    "PASSWORD_REQUIRED": "Hasło jest wymagane",
+    "EMAIL_REQUIRED": "Email jest wymagany",
+    "INVALID_EMAIL": "Niepoprawny adres email",
+    "PASSWORD_LENGTH_ERROR": "Hasło musi mieć co najmniej 8 znaków"
   },
   "OFFER_ITEM": {
     "WATCH": "Obserwuj",

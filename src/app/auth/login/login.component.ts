@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
 
 import { AuthService } from '../auth.service';
-import { Router } from '@angular/router';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { TranslateService } from '@ngx-translate/core';
+import { SnackBarService } from '../../shared/snackbar.service';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private snackBar: MatSnackBar,
+    private snackBarService: SnackBarService,
     private translateService: TranslateService
   ) {}
 
@@ -46,10 +46,10 @@ export class LoginComponent implements OnInit {
         },
         (error) => {
           this.showErrorSnackBar();
+          this.loginForm.reset();
           this.isLoading = false;
         }
       );
-    } else {
     }
   }
 
@@ -65,12 +65,9 @@ export class LoginComponent implements OnInit {
     this.translateService
       .get(['LOGIN.INVALID_CREDENTIALS', 'LOGIN.TRY_AGAIN'])
       .subscribe((results) => {
-        this.snackBar.open(
+        this.snackBarService.showSnackBar(
           results['LOGIN.INVALID_CREDENTIALS'],
-          results['LOGIN.TRY_AGAIN'],
-          {
-            duration: 2000,
-          }
+          results['LOGIN.TRY_AGAIN']
         );
       });
   }

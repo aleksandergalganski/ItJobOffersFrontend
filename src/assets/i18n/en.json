@@ -38,7 +38,15 @@
     "NAME": "Name",
     "PASSWORD": "Password",
     "CONFIRM_PASSWORD": "Confirm Password",
-    "CREATE": "Create"
+    "CREATE": "Create",
+    "PASSWORD_ERROR": "Passwords are not the same",
+    "DUPLICATE_MESSAGE": "Email or Name are arleady taken",
+    "SUCCESS_MESSAGE": "Success!",
+    "NAME_REQUIRED": "Name is required",
+    "PASSWORD_REQUIRED": "Password is required",
+    "EMAIL_REQUIRED": "Email is required",
+    "INVALID_EMAIL": "Invalid email address",
+    "PASSWORD_LENGTH_ERROR": "Password must be at least 8 characters"
   },
   "OFFER_ITEM": {
     "WATCH": "Save",

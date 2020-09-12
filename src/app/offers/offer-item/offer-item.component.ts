@@ -3,8 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 
 import { OffersService } from '../offers.service';
 import { Offer } from '../offer.model';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
+import { SnackBarService } from 'src/app/shared/snackbar.service';
 
 @Component({
   selector: 'app-offer-item',
@@ -18,8 +18,8 @@ export class OfferItemComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private offfersService: OffersService,
-    private snackBar: MatSnackBar,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private snackBarService: SnackBarService
   ) {}
 
   ngOnInit(): void {
@@ -40,13 +40,7 @@ export class OfferItemComponent implements OnInit {
       : 'OFFER_ITEM.MESSAGE_ERROR';
 
     this.translateService.get(translate).subscribe((message) => {
-      this.openSnackBar(message);
-    });
-  }
-
-  private openSnackBar(message: string) {
-    this.snackBar.open(message, 'OK', {
-      duration: 2000,
+      this.snackBarService.showSnackBar(message, 'OK');
     });
   }
 }
