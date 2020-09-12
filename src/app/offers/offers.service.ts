@@ -27,7 +27,8 @@ export class OffersService {
 
   searchForOffers(
     offersSearch: OfferSearch,
-    page: number = 1
+    page: number = 1,
+    limit?: number
   ): Observable<Offer[]> {
     let params = new HttpParams();
 
@@ -48,6 +49,10 @@ export class OffersService {
         'experienceLevel[in]',
         offersSearch.experienceLevel
       );
+    }
+
+    if (limit) {
+      params = params.append('limit', limit.toString());
     }
 
     if (offersSearch.isRemote) {

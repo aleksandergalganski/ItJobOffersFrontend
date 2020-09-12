@@ -62,5 +62,8 @@
     "NO_OFFERS": "Nie obserwujesz w tym momencie żadnych ofert",
     "YOUR_SAVED_OFFERS": "Twoje Obserwowane Oferty Pracy",
     "DELETE_MESSAGE": "Usunięto z obserwowanych"
+  },
+  "SIMILAR_OFFERS": {
+    "HEADER": "Zobacz więcej z {{ city }} z kategorii {{ category }}"
   }
 }

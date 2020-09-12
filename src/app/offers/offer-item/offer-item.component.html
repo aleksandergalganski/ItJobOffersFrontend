@@ -80,4 +80,9 @@
       </div>
     </mat-card>
   </section>
+  <app-similar-offers
+    *ngIf="!isLoading"
+    [city]="offer.city"
+    [category]="offer.category"
+  ></app-similar-offers>
 </div>

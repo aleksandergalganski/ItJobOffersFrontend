@@ -62,5 +62,8 @@
     "NO_OFFERS": "At This Moment You Dont'have Any Saved Job Offers.",
     "YOUR_SAVED_OFFERS": "Your Saved Job Offers",
     "DELETE_MESSAGE": "Delete from saved offers"
+  },
+  "SIMILAR_OFFERS": {
+    "HEADER": "See more from {{ city }} category {{ category }}"
   }
 }

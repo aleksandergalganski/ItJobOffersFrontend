@@ -21,6 +21,7 @@ import { AddOfferComponent } from './offers/add-offer/add-offer.component';
 import { OfferApplyComponent } from './offers/offer-apply/offer-apply.component';
 import { WatchedOffersComponent } from './offers/watched-offers/watched-offers.component';
 import { UserDashboardComponent } from './dashboard/user-dashboard/user-dashboard.component';
+import { SimilarOffersComponent } from './offers/similar-offers/similar-offers.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { UserDashboardComponent } from './dashboard/user-dashboard/user-dashboar
     OfferApplyComponent,
     WatchedOffersComponent,
     UserDashboardComponent,
+    SimilarOffersComponent,
   ],
   imports: [
     BrowserModule,
