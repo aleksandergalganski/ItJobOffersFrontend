@@ -16,12 +16,19 @@ export class CompanyOffersComponent implements OnInit {
   constructor(private offersService: OffersService) {}
 
   ngOnInit(): void {
+    this.fetchOffers();
+  }
+
+  private fetchOffers() {
     this.offersService
       .getOfferByCompany(this.companyId)
       .subscribe((offers: Offer[]) => {
         this.offers = offers;
-        console.log(this.offers);
         this.isLoading = false;
       });
+  }
+
+  onDeleteOffer(offerId: string) {
+    this.offers = this.offers.filter((offer: Offer) => offer._id !== offerId);
   }
 }

@@ -31,6 +31,7 @@ import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { CompanyOffersComponent } from './dashboard/company-offers/company-offers.component';
 import { EditCompanyDetailsComponent } from './dashboard/edit-company-details/edit-company-details.component';
 import { CompanyOfferItemComponent } from './dashboard/company-offer-item/company-offer-item.component';
+import { DeleteOfferDialogComponent } from './dashboard/delete-offer-dialog/delete-offer-dialog.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { CompanyOfferItemComponent } from './dashboard/company-offer-item/compan
     CompanyOffersComponent,
     EditCompanyDetailsComponent,
     CompanyOfferItemComponent,
+    DeleteOfferDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,6 +79,7 @@ import { CompanyOfferItemComponent } from './dashboard/company-offer-item/compan
     },
   ],
   bootstrap: [AppComponent],
+  entryComponents: [DeleteOfferDialogComponent],
 })
 export class AppModule {}
 
