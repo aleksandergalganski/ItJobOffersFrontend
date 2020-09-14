@@ -1,1 +1,32 @@
-<p>user-dashboard works!</p>
+<section class="dashboard" *ngIf="!isLoading">
+  <mat-tab-group [backgroundColor]="'primary'">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        {{ "DASHBOARD.OFFERS" | translate }}
+      </ng-template>
+      <app-company-offers [companyId]="company._id"></app-company-offers>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        {{ "DASHBOARD.ADD_OFFER" | translate }}
+      </ng-template>
+      <app-add-offer [companyId]="company._id"></app-add-offer>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label style="display: flex; align-items: center">
+        <span style="margin-right: 10px">{{
+          "DASHBOARD.COMPANY" | translate
+        }}</span>
+        <img
+          src="../../../assets/img/company.png"
+          alt=""
+          style="width: auto; height: 40px"
+        />
+      </ng-template>
+      <app-edit-company-details></app-edit-company-details>
+    </mat-tab>
+  </mat-tab-group>
+</section>
+<div class="spinner-wrapper" *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
+</div>

@@ -6,7 +6,7 @@
     "REGISTER": "Register",
     "LOGIN": "Login",
     "SAVED": "Saved",
-    "MY_OFFERS": "My Offers",
+    "DASHBOARD": "Dashboard",
     "LOGOUT": "Logout"
   },
   "OFFER": {
@@ -73,5 +73,13 @@
     "SUCCESS_MESSAGE": "Application has been sent",
     "ERROR_MESSAGE": "Application could not been sent",
     "EMAIL_ERROR": "You already sent application for that offer"
+  },
+  "DASHBOARD": {
+    "ADD_OFFER": "Add Offer",
+    "OFFERS": "Offers",
+    "COMPANY": "Company"
+  },
+  "ADD_OFFER": {
+    "SUCCESS_MESSAGE": "Offer has been added!"
   }
 }

@@ -26,9 +26,6 @@
           <li class="nav__item">
             <a routerLink="/companies">{{ "HEADER.COMPANIES" | translate }}</a>
           </li>
-          <li class="nav__item">
-            <a routerLink="/addoffer">{{ "HEADER.ADDOFFER" | translate }}</a>
-          </li>
           <li class="nav__item nav__item--auth" *ngIf="!isAuth">
             <a routerLink="/register">{{ "HEADER.REGISTER" | translate }}</a>
           </li>
@@ -36,7 +33,7 @@
             <a routerLink="/login">{{ "HEADER.LOGIN" | translate }}</a>
           </li>
           <li class="nav__item nav__item--auth" *ngIf="isAuth">
-            <a routerLink="/dashboard">{{ "HEADER.MY_OFFERS" | translate }}</a>
+            <a routerLink="/dashboard">{{ "HEADER.DASHBOARD" | translate }}</a>
           </li>
           <li class="nav__item nav__item--auth" *ngIf="isAuth">
             <a (click)="onLogout()">{{ "HEADER.LOGOUT" | translate }}</a>

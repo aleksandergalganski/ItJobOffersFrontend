@@ -22,12 +22,15 @@ import { OfferItemComponent } from './offers/offer-item/offer-item.component';
 import { MaterialModule } from './material.module';
 import { CompaniesListComponent } from './companies/companies-list/companies-list.component';
 import { CompanyItemComponent } from './companies/company-item/company-item.component';
-import { AddOfferComponent } from './offers/add-offer/add-offer.component';
+import { AddOfferComponent } from './dashboard/add-offer/add-offer.component';
 import { OfferApplyComponent } from './offers/offer-apply/offer-apply.component';
 import { WatchedOffersComponent } from './offers/watched-offers/watched-offers.component';
 import { UserDashboardComponent } from './dashboard/user-dashboard/user-dashboard.component';
 import { SimilarOffersComponent } from './offers/similar-offers/similar-offers.component';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
+import { CompanyOffersComponent } from './dashboard/company-offers/company-offers.component';
+import { EditCompanyDetailsComponent } from './dashboard/edit-company-details/edit-company-details.component';
+import { CompanyOfferItemComponent } from './dashboard/company-offer-item/company-offer-item.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +48,9 @@ import { AuthInterceptorService } from './auth/auth-interceptor.service';
     WatchedOffersComponent,
     UserDashboardComponent,
     SimilarOffersComponent,
+    CompanyOffersComponent,
+    EditCompanyDetailsComponent,
+    CompanyOfferItemComponent,
   ],
   imports: [
     BrowserModule,

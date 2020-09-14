@@ -39,7 +39,6 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     if (this.registerForm.valid) {
       if (!this.matchPasswords()) {
-        console.log('Not Match');
         this.showPasswordErrorSnackBar();
       } else {
         this.isLoading = true;

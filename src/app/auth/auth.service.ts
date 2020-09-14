@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { tap, map } from 'rxjs/operators';
 
 import { User } from './user.model';
 import { Router } from '@angular/router';
@@ -38,6 +38,12 @@ export class AuthService {
       'http://localhost:5000/api/v1/auth/register',
       userData
     );
+  }
+
+  getMe(): Observable<User> {
+    return this.httpClient
+      .get('http://localhost:5000/api/v1/auth/whoami')
+      .pipe(map((res: { success: boolean; data: User }) => res.data));
   }
 
   logout() {

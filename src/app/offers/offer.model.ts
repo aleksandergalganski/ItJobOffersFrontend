@@ -1,5 +1,5 @@
 export interface Offer {
-  _id: string;
+  _id?: string;
   name: string;
   slug: string;
   description: string;
@@ -9,17 +9,19 @@ export interface Offer {
   mustHave: string[];
   niceToHave: string[];
   category: string;
-  city: string;
-  postCode: string;
-  street: string;
-  streetNumber: string;
   isRemote: boolean;
-  createdAt: Date;
-  company: {
-    _id: string;
-    logo: string;
-    name: string;
-    companySize: string;
-    description: string;
-  };
+  city?: string;
+  postCode?: string;
+  street?: string;
+  streetNumber?: string;
+  createdAt?: Date;
+  company:
+    | {
+        _id: string;
+        logo: string;
+        name: string;
+        companySize: string;
+        description: string;
+      }
+    | string;
 }

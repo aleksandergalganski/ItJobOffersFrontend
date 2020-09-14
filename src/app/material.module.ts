@@ -12,6 +12,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatListModule } from '@angular/material/list';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTabsModule } from '@angular/material/tabs';
 
 const materialModules = [
   MatProgressSpinnerModule,
@@ -26,6 +27,7 @@ const materialModules = [
   MatChipsModule,
   MatListModule,
   MatSnackBarModule,
+  MatTabsModule,
 ];
 
 @NgModule({

@@ -6,7 +6,7 @@
     "REGISTER": "Rejestracja",
     "LOGIN": "Zaloguj",
     "SAVED": "Obserwowane",
-    "MY_OFFERS": "Moje Oferty",
+    "DASHBOARD": "Panel Firmowy",
     "LOGOUT": "Wyloguj się"
   },
   "OFFER": {
@@ -73,5 +73,13 @@
     "SUCCESS_MESSAGE": "Aplikacja została wysłana",
     "ERROR_MESSAGE": "Błąd podczas wysyłania aplikacji",
     "EMAIL_ERROR": "Nie możesz drugi raz aplikować na to samo stanowisko"
+  },
+  "DASHBOARD": {
+    "ADD_OFFER": "Dodaj Ofertę",
+    "OFFERS": "Oferty",
+    "COMPANY": "Firma"
+  },
+  "ADD_OFFER": {
+    "SUCCESS_MESSAGE": "Oferta została dodana!"
   }
 }

@@ -70,6 +70,18 @@ export class OffersService {
       );
   }
 
+  getOfferByCompany(companyId: string): Observable<Offer[]> {
+    return this.httpClient
+      .get('http://localhost:5000/api/v1/offers', {
+        params: new HttpParams().set('company', companyId),
+      })
+      .pipe(
+        map((res: { success: boolean; data: Offer[] }) => {
+          return res.data;
+        })
+      );
+  }
+
   getOfferById(id: string): Observable<Offer> {
     return this.httpClient.get(`api/v1/offers/${id}`).pipe(
       map((res: { success: boolean; data: Offer }) => {
@@ -88,12 +100,14 @@ export class OffersService {
       );
   }
 
-  createOffer(offer: Offer): Observable<Offer> {
-    return this.httpClient.post('api/v1/offers', offer).pipe(
-      map((res: { success: boolean; data: Offer }) => {
-        return res.data;
-      })
-    );
+  createOffer(companyId: string, offer: Offer): Observable<Offer> {
+    return this.httpClient
+      .post(`http://localhost:5000/api/v1/companies/${companyId}/offers`, offer)
+      .pipe(
+        map((res: { success: boolean; data: Offer }) => {
+          return res.data;
+        })
+      );
   }
 
   updateOffer(id: string, offer: Offer): Observable<Offer> {

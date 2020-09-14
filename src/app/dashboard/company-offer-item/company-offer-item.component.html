@@ -1,0 +1,36 @@
+<mat-card class="offer">
+  <mat-card-header>
+    <mat-card-title>{{ offer.name }} - 3 Applications</mat-card-title>
+    <mat-card-subtitle
+      >{{ offer.experienceLevel }} - {{ offer.category }} -
+      {{ offer.createdAt | date: "shortDate" }} ({{ offer.salaryMin }} -
+      {{ offer.salaryMax }})</mat-card-subtitle
+    >
+  </mat-card-header>
+  <mat-card-content>
+    <h2 class="mat-h2">Must Have</h2>
+    <div class="technologies">
+      <mat-chip-list class="offer__nicetohave">
+        <mat-chip color="accent" selected *ngFor="let item of offer.mustHave">{{
+          item
+        }}</mat-chip>
+      </mat-chip-list>
+    </div>
+    <h2 class="mat-h2">Nice To Have</h2>
+    <div class="technologies">
+      <mat-chip-list class="offer__musthave">
+        <mat-chip
+          color="accent"
+          selected
+          *ngFor="let item of offer.niceToHave"
+          >{{ item }}</mat-chip
+        >
+      </mat-chip-list>
+    </div>
+    <p class="offer__description">{{ offer.description }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary">UPDATE</button>
+    <button mat-raised-button color="primary">DELETE</button>
+  </mat-card-actions>
+</mat-card>

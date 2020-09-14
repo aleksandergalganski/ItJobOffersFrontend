@@ -1,0 +1,11 @@
+<div class="container">
+  <section class="offers" *ngIf="!isLoading">
+    <app-company-offer-item
+      [offer]="offer"
+      *ngFor="let offer of offers"
+    ></app-company-offer-item>
+  </section>
+  <div class="spinner-wrapper" *ngIf="isLoading">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>
