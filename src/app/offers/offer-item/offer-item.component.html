@@ -27,7 +27,9 @@
         <p class="offer__city flexAlignCenter" *ngIf="!offer.isRemote">
           <mat-icon class="mr-5">explore</mat-icon><span>{{ offer.city }}</span>
         </p>
-        <p class="offer__remote" *ngIf="offer.isRemote"></p>
+        <p class="offer__remote flexAlignCenter" *ngIf="offer.isRemote">
+          <mat-icon class="mr-5">explore</mat-icon><span>Remote</span>
+        </p>
       </div>
       <h3 class="offer__section-title">
         {{ "OFFER_ITEM.MUST_HAVE" | translate }}

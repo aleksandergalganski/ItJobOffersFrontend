@@ -30,7 +30,9 @@
     <p class="offer__description">{{ offer.description }}</p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button color="primary">UPDATE</button>
+    <button mat-raised-button color="primary" (click)="onOpenUpdateDialog()">
+      UPDATE
+    </button>
     <button mat-raised-button color="primary" (click)="onOpenDeleteDialog()">
       DELETE
     </button>

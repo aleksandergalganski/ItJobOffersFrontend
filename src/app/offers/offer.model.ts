@@ -1,5 +1,6 @@
 export interface Offer {
   _id?: string;
+  __v?: string;
   name: string;
   slug: string;
   description: string;

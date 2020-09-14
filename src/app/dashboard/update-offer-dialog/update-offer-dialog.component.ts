@@ -1,48 +1,46 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  OnInit,
-  Output,
-} from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
-import { Subject } from 'rxjs';
+
 import { Offer } from 'src/app/offers/offer.model';
-import { OffersService } from 'src/app/offers/offers.service';
-import { SelectOptionsService } from 'src/app/shared/select-options.service';
 import { SnackBarService } from 'src/app/shared/snackbar.service';
+import { SelectOptionsService } from '../../shared/select-options.service';
 
 @Component({
-  selector: 'app-add-offer',
-  templateUrl: './add-offer.component.html',
-  styleUrls: ['./add-offer.component.scss'],
+  selector: 'app-update-offer-dialog',
+  templateUrl: './update-offer-dialog.component.html',
+  styleUrls: ['./update-offer-dialog.component.scss'],
 })
-export class AddOfferComponent implements OnInit {
-  @Input() companyId: string;
-  isLoading: boolean = false;
-  offerForm: FormGroup;
-  offer: Offer;
+export class UpdateOfferDialogComponent implements OnInit {
   expLevels = [];
   mustHaves = [];
   niceToHaves = [];
   categories = [];
+  offerForm: FormGroup;
+  offer: Offer;
 
   constructor(
     private fb: FormBuilder,
-    private offersService: OffersService,
     private snackBarService: SnackBarService,
     private translateService: TranslateService,
-    private router: Router,
-    private selectOptionsService: SelectOptionsService
-  ) {}
+    private selectOptionsService: SelectOptionsService,
+    private dialogRef: MatDialogRef<UpdateOfferDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) data: Offer
+  ) {
+    this.offer = data;
+  }
 
   ngOnInit(): void {
     this.createForm();
-    this.onChanges();
     this.setSelects();
+    delete this.offer._id;
+    delete this.offer.__v;
+    delete this.offer.slug;
+    delete this.offer.createdAt;
+    delete this.offer.company;
+    this.offerForm.setValue(this.offer);
+    this.onChanges();
   }
 
   setSelects() {
@@ -52,24 +50,16 @@ export class AddOfferComponent implements OnInit {
     this.categories = this.selectOptionsService.category;
   }
 
-  onSubmit() {
-    this.isLoading = true;
+  onSave() {
     if (this.offerForm.valid) {
       if (this.checkSalary()) {
-        this.offer = this.offerForm.value;
-        this.offersService.createOffer(this.companyId, this.offer).subscribe(
-          (res: { success: boolean; data: Offer }) => {
-            this.isLoading = false;
-            this.showSuccessSnackBar();
-          },
-          (error) => {
-            this.isLoading = false;
-            this.snackBarService.showSnackBar(error.error.error, 'OK', 2000);
-            this.offerForm.reset();
-          }
-        );
+        this.dialogRef.close(this.offerForm.value);
       }
     }
+  }
+
+  onClose() {
+    this.dialogRef.close();
   }
 
   private onChanges() {
@@ -77,12 +67,12 @@ export class AddOfferComponent implements OnInit {
       if (value) {
         this.city.disable();
         this.postCode.disable();
-        this.street.disable();
+        this.streetNumber.disable();
         this.number.disable();
       } else {
         this.city.enable();
         this.postCode.enable();
-        this.street.enable();
+        this.streetNumber.enable();
         this.number.enable();
       }
     });
@@ -104,13 +94,13 @@ export class AddOfferComponent implements OnInit {
       salaryMin: ['', [Validators.required, Validators.min(0)]],
       salaryMax: ['', [Validators.required, Validators.min(0)]],
       description: ['', [Validators.required, Validators.maxLength(1000)]],
-      mustHave: ['', Validators.required],
-      niceToHave: ['', Validators.required],
+      mustHave: [null, Validators.required],
+      niceToHave: [null, Validators.required],
       isRemote: [false],
       city: [''],
       postCode: ['', Validators.pattern('^[0-9]{2}-[0-9]{3}$')],
       street: [''],
-      number: [''],
+      streetNumber: [''],
     });
   }
 
@@ -164,8 +154,8 @@ export class AddOfferComponent implements OnInit {
     return this.offerForm.get('postCode');
   }
 
-  get street() {
-    return this.offerForm.get('street');
+  get streetNumber() {
+    return this.offerForm.get('streetNumber');
   }
 
   get number() {

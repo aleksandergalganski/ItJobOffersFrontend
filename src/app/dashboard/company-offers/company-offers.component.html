@@ -4,6 +4,7 @@
       [offer]="offer"
       *ngFor="let offer of offers"
       (offerDeleted)="onDeleteOffer($event)"
+      (offerUpdated)="onUpdateOffer()"
     ></app-company-offer-item>
   </section>
   <div class="spinner-wrapper" *ngIf="isLoading">

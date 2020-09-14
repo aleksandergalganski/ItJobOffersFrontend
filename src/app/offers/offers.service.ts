@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, BehaviorSubject, Subject } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 
 import { Offer } from './offer.model';
 import { OfferSearch } from './offer-search.model';
@@ -13,6 +13,7 @@ export class OffersService {
   watchedOffersLengthChanged = new BehaviorSubject<number>(
     this.getWatchedOffersLength()
   );
+  offerAddedSubject = new Subject<Offer>();
 
   constructor(private httpClient: HttpClient) {}
 
@@ -100,22 +101,24 @@ export class OffersService {
       );
   }
 
-  createOffer(companyId: string, offer: Offer): Observable<Offer> {
+  createOffer(companyId: string, offer: Offer): Observable<any> {
     return this.httpClient
       .post(`http://localhost:5000/api/v1/companies/${companyId}/offers`, offer)
       .pipe(
-        map((res: { success: boolean; data: Offer }) => {
-          return res.data;
+        tap((res: { success: boolean; data: Offer }) => {
+          this.offerAddedSubject.next(res.data);
         })
       );
   }
 
   updateOffer(id: string, offer: Offer): Observable<Offer> {
-    return this.httpClient.post(`api/v1/offers/${id}`, offer).pipe(
-      map((res: { success: boolean; data: Offer }) => {
-        return res.data;
-      })
-    );
+    return this.httpClient
+      .put(`http://localhost:5000/api/v1/offers/${id}`, offer)
+      .pipe(
+        map((res: { success: boolean; data: Offer }) => {
+          return res.data;
+        })
+      );
   }
 
   deleteOffer(id: string): Observable<any> {

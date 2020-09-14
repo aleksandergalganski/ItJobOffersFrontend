@@ -16,9 +16,9 @@
       <mat-form-field appearance="fill">
         <mat-label>Category</mat-label>
         <mat-select name="category" formControlName="category">
-          <mat-option [value]="'junior'">Frontend</mat-option>
-          <mat-option [value]="'junior'">Backend</mat-option>
-          <mat-option [value]="'junior'">Testing</mat-option>
+          <mat-option *ngFor="let item of categories" [value]="item">{{
+            item
+          }}</mat-option>
         </mat-select>
       </mat-form-field>
       <div class="flex">
@@ -27,8 +27,8 @@
           <input
             matInput
             type="number"
-            name="minSalary"
-            formControlName="minSalary"
+            name="salaryMin"
+            formControlName="salaryMin"
           />
         </mat-form-field>
         <mat-form-field appearance="fill">
@@ -36,8 +36,8 @@
           <input
             matInput
             type="number"
-            name="maxSalary"
-            formControlName="maxSalary"
+            name="salaryMax"
+            formControlName="salaryMax"
           />
         </mat-form-field>
       </div>
@@ -54,17 +54,17 @@
         <mat-form-field appearance="fill">
           <mat-label>Must Have</mat-label>
           <mat-select multiple name="mustHave" formControlName="mustHave">
-            <mat-option [value]="'junior'">Java</mat-option>
-            <mat-option [value]="'junior'">C#</mat-option>
-            <mat-option [value]="'junior'">C++</mat-option>
+            <mat-option *ngFor="let item of mustHaves" [value]="item">{{
+              item
+            }}</mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field appearance="fill">
           <mat-label>Nice To Have</mat-label>
           <mat-select multiple name="niceToHave" formControlName="niceToHave">
-            <mat-option [value]="'junior'">Java</mat-option>
-            <mat-option [value]="'junior'">C#</mat-option>
-            <mat-option [value]="'junior'">C++</mat-option>
+            <mat-option *ngFor="let item of niceToHaves" [value]="item">{{
+              item
+            }}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
