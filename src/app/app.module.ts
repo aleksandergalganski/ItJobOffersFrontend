@@ -89,7 +89,12 @@ import { EditCompanyDialogComponent } from './dashboard/edit-company-dialog/edit
     },
   ],
   bootstrap: [AppComponent],
-  entryComponents: [DeleteOfferDialogComponent, UpdateOfferDialogComponent],
+  entryComponents: [
+    DeleteOfferDialogComponent,
+    UpdateOfferDialogComponent,
+    DeleteCompanyDialogComponent,
+    EditCompanyDialogComponent,
+  ],
 })
 export class AppModule {}
 

@@ -5,6 +5,7 @@ import { CompaniesService } from 'src/app/companies/companies.service';
 import { Company } from 'src/app/companies/company.model';
 import { SnackBarService } from 'src/app/shared/snackbar.service';
 import { DeleteCompanyDialogComponent } from '../delete-company-dialog/delete-company-dialog.component';
+import { EditCompanyDialogComponent } from '../edit-company-dialog/edit-company-dialog.component';
 
 @Component({
   selector: 'app-edit-company-details',
@@ -13,6 +14,7 @@ import { DeleteCompanyDialogComponent } from '../delete-company-dialog/delete-co
 })
 export class EditCompanyDetailsComponent implements OnInit {
   @Input() company: Company;
+  isLoading: boolean = false;
 
   constructor(
     private dialog: MatDialog,
@@ -43,21 +45,25 @@ export class EditCompanyDetailsComponent implements OnInit {
   }
 
   onOpenUpdateDialog() {
-    const dialogRef = this.dialog.open(EditCompanyDetailsComponent, {
+    const dialogRef = this.dialog.open(EditCompanyDialogComponent, {
       disableClose: true,
       autoFocus: true,
-      data: this.company,
+      data: { ...this.company },
       width: '600px',
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
+        this.isLoading = true;
         this.companiesService
           .updateCompany(this.company._id, result)
           .subscribe((result) => {
+            this.isLoading = false;
             this.snackBarService.showSnackBar('Company Updated', 'OK', 2000);
           });
       }
     });
   }
+
+  onOpenUploadDialog() {}
 }

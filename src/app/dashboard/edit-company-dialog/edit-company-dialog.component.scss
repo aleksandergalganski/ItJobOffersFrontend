@@ -1,0 +1,24 @@
+textarea {
+  height: 200px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.form {
+  grid-template-columns: 1fr;
+  justify-items: stretch;
+  justify-content: stretch;
+
+  &__button {
+    grid-column-end: auto;
+    grid-column-start: auto;
+  }
+  &__details,
+  &__address,
+  &__social {
+    display: flex;
+    flex-direction: column;
+  }
+}

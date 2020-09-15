@@ -13,7 +13,8 @@ export interface Company {
   facebookLink?: string;
   instagramLink?: string;
   linkedinLink?: string;
-  logo: string;
+  logo?: string;
+  user?: string;
   city: string;
   postCode: string;
   street: string;

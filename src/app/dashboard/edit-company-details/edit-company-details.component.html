@@ -2,7 +2,13 @@
   <button mat-raised-button color="primary" (click)="onOpenUpdateDialog()">
     {{ "COMPANY_DETAILS.EDIT" | translate }}
   </button>
+  <button mat-raised-button color="primary" (click)="onOpenUploadDialog()">
+    Upload Logo
+  </button>
   <button mat-raised-button color="warn" (click)="onOpenDeleteDialog()">
     {{ "COMPANY_DETAILS.DELETE" | translate }}
   </button>
 </section>
+<div class="spinner-wrapper">
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+</div>
