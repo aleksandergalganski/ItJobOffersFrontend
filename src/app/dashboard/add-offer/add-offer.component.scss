@@ -33,6 +33,11 @@ mat-checkbox {
     }
   }
 
+  mat-form-field {
+    margin-right: 0;
+    width: 100%;
+  }
+
   .flex {
     flex-direction: column;
   }
