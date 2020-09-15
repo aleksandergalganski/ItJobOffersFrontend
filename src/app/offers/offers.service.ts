@@ -122,7 +122,13 @@ export class OffersService {
   }
 
   deleteOffer(id: string): Observable<any> {
-    return this.httpClient.delete(`http://localhost:5000/api/v1/offers/${id}`);
+    return this.httpClient
+      .delete(`http://localhost:5000/api/v1/offers/${id}`)
+      .pipe(
+        tap((res) => {
+          this.deleteWatchedOffer(id);
+        })
+      );
   }
 
   addWatchedOffer(offer: Offer): boolean {
