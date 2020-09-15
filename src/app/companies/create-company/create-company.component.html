@@ -1,21 +1,21 @@
 <section class="add-company">
   <form class="form" [formGroup]="companyForm" (ngSubmit)="onSubmit()">
     <div class="form__details">
-      <h2 class="mat-h2">Company Details</h2>
+      <h2 class="mat-h2">{{ "COMPANY_FORM.COMPANY_DETAILS" | translate }}</h2>
       <mat-form-field appearance="fill">
-        <mat-label>Name</mat-label>
+        <mat-label>{{ "COMPANY_FORM.NAME" | translate }}</mat-label>
         <input matInput type="text" formControlName="name" />
       </mat-form-field>
       <mat-form-field appearance="fill">
-        <mat-label>Description</mat-label>
+        <mat-label>{{ "COMPANY_FORM.DESCRIPTION" | translate }}</mat-label>
         <textarea matInput formControlName="description"></textarea>
       </mat-form-field>
       <mat-form-field appearance="fill">
-        <mat-label>Founded In (year)</mat-label>
+        <mat-label>{{ "COMPANY_FORM.FOUNDED_IN" | translate }}</mat-label>
         <input matInput type="number" formControlName="foundedIn" />
       </mat-form-field>
       <mat-form-field appearance="fill">
-        <mat-label>Technologies</mat-label>
+        <mat-label>{{ "COMPANY_FORM.TECHNOLOGIES" | translate }}</mat-label>
         <mat-select formControlName="technologies" multiple>
           <mat-option *ngFor="let tech of technologies" [value]="tech">{{
             tech
@@ -23,37 +23,39 @@
         </mat-select>
       </mat-form-field>
       <mat-form-field appearance="fill">
-        <mat-label>Company Size</mat-label>
+        <mat-label>{{ "COMPANY_FORM.COMPANY_SIZE" | translate }}</mat-label>
         <input matInput type="number" formControlName="companySize" />
       </mat-form-field>
     </div>
     <div class="form__address">
-      <h2 class="mat-h2">Contact</h2>
+      <h2 class="mat-h2">{{ "COMPANY_FORM.CONTACT" | translate }}</h2>
       <mat-form-field appearance="fill">
         <mat-label>Email</mat-label>
         <input matInput type="email" formControlName="email" />
       </mat-form-field>
       <mat-form-field appearance="fill">
-        <mat-label>City</mat-label>
+        <mat-label>{{ "COMPANY_FORM.CITY" | translate }}</mat-label>
         <input matInput type="text" formControlName="city" />
       </mat-form-field>
       <mat-form-field appearance="fill">
-        <mat-label>Post Code</mat-label>
+        <mat-label>{{ "COMPANY_FORM.POST_CODE" | translate }}</mat-label>
         <input matInput type="text" formControlName="postCode" />
       </mat-form-field>
       <mat-form-field appearance="fill">
-        <mat-label>Street</mat-label>
+        <mat-label>{{ "COMPANY_FORM.STREET" | translate }}</mat-label>
         <input matInput type="text" formControlName="street" />
       </mat-form-field>
       <mat-form-field appearance="fill">
-        <mat-label>Number</mat-label>
+        <mat-label>{{ "COMPANY_FORM.NUMBER" | translate }}</mat-label>
         <input matInput type="text" formControlName="streetNumber" />
       </mat-form-field>
     </div>
     <div class="form__social">
-      <h2 class="mat-h2">Website & Social Media</h2>
+      <h2 class="mat-h2">
+        {{ "COMPANY_FORM.WEBSITE_AND_SOCIAL_MEDIA" | translate }}
+      </h2>
       <mat-form-field appearance="fill">
-        <mat-label>Website</mat-label>
+        <mat-label>{{ "COMPANY_FORM.WEBSITE" | translate }}</mat-label>
         <input matInput type="url" formControlName="website" />
       </mat-form-field>
       <mat-form-field appearance="fill">
@@ -76,7 +78,7 @@
       class="form__button"
       [disabled]="!companyForm.valid"
     >
-      Create
+      {{ "COMPANY_FORM.CREATE" | translate }}
     </button>
   </form>
 </section>

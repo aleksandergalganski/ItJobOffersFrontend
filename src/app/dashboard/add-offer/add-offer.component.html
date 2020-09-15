@@ -2,11 +2,11 @@
   <div class="container">
     <form class="form" [formGroup]="offerForm" (ngSubmit)="onSubmit()">
       <mat-form-field appearance="fill">
-        <mat-label>Name</mat-label>
+        <mat-label>{{ "OFFER_FORM.NAME" | translate }}</mat-label>
         <input matInput type="text" name="name" formControlName="name" />
       </mat-form-field>
       <mat-form-field appearance="fill">
-        <mat-label>Experience Level</mat-label>
+        <mat-label>{{ "OFFER_FORM.EXP_LEVEL" | translate }}</mat-label>
         <mat-select name="experienceLevel" formControlName="experienceLevel">
           <mat-option *ngFor="let level of expLevels" [value]="level">{{
             level
@@ -14,7 +14,7 @@
         </mat-select>
       </mat-form-field>
       <mat-form-field appearance="fill">
-        <mat-label>Category</mat-label>
+        <mat-label>{{ "OFFER_FORM.CATEGORY" | translate }}</mat-label>
         <mat-select name="category" formControlName="category">
           <mat-option *ngFor="let item of categories" [value]="item">{{
             item
@@ -23,7 +23,7 @@
       </mat-form-field>
       <div class="flex">
         <mat-form-field appearance="fill">
-          <mat-label>Min Salary</mat-label>
+          <mat-label>{{ "OFFER_FORM.MIN_SALARY" | translate }}</mat-label>
           <input
             matInput
             type="number"
@@ -32,7 +32,7 @@
           />
         </mat-form-field>
         <mat-form-field appearance="fill">
-          <mat-label>Max Salary</mat-label>
+          <mat-label>{{ "OFFER_FORM.MAX_SALARY" | translate }}</mat-label>
           <input
             matInput
             type="number"
@@ -42,7 +42,7 @@
         </mat-form-field>
       </div>
       <mat-form-field appearance="fill">
-        <mat-label>description</mat-label>
+        <mat-label>{{ "OFFER_FORM.DESCRIPTION" | translate }}</mat-label>
         <textarea
           matInput
           class="form__textarea"
@@ -52,7 +52,7 @@
       </mat-form-field>
       <div class="flex">
         <mat-form-field appearance="fill">
-          <mat-label>Must Have</mat-label>
+          <mat-label>{{ "OFFER_FORM.MUST_HAVE" | translate }}</mat-label>
           <mat-select multiple name="mustHave" formControlName="mustHave">
             <mat-option *ngFor="let item of mustHaves" [value]="item">{{
               item
@@ -60,7 +60,7 @@
           </mat-select>
         </mat-form-field>
         <mat-form-field appearance="fill">
-          <mat-label>Nice To Have</mat-label>
+          <mat-label>{{ "OFFER_FORM.NICE_TO_HAVE" | translate }}</mat-label>
           <mat-select multiple name="niceToHave" formControlName="niceToHave">
             <mat-option *ngFor="let item of niceToHaves" [value]="item">{{
               item
@@ -72,16 +72,16 @@
         class="example-margin"
         name="isRemote"
         formControlName="isRemote"
-        >Remote</mat-checkbox
+        >{{ "OFFER_FORM.REMOTE" | translate }}</mat-checkbox
       >
-      <h2 class="mat-h2">Address</h2>
+      <h2 class="mat-h2">{{ "OFFER_FORM.ADDRESS" | translate }}</h2>
       <div class="flex">
         <mat-form-field appearance="fill">
-          <mat-label>City</mat-label>
+          <mat-label>{{ "OFFER_FORM.CITY" | translate }}</mat-label>
           <input matInput type="text" name="city" formControlName="city" />
         </mat-form-field>
         <mat-form-field appearance="fill">
-          <mat-label>Post Code</mat-label>
+          <mat-label>{{ "OFFER_FORM.POST_CODE" | translate }}</mat-label>
           <input
             matInput
             type="text"
@@ -92,11 +92,11 @@
       </div>
       <div class="flex">
         <mat-form-field appearance="fill">
-          <mat-label>Street</mat-label>
+          <mat-label>{{ "OFFER_FORM.STREET" | translate }}</mat-label>
           <input matInput type="text" name="street" formControlName="street" />
         </mat-form-field>
         <mat-form-field appearance="fill">
-          <mat-label>Number</mat-label>
+          <mat-label>{{ "OFFER_FORM.NUMBER" | translate }}</mat-label>
           <input
             matInput
             type="number"
@@ -112,7 +112,7 @@
         class="form__button"
         [disabled]="!offerForm.valid"
       >
-        Create
+        {{ "OFFER_FORM.CREATE" | translate }}
       </button>
     </form>
   </div>

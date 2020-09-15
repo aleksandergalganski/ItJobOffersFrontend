@@ -48,6 +48,10 @@
     "INVALID_EMAIL": "Invalid email address",
     "PASSWORD_LENGTH_ERROR": "Password must be at least 8 characters"
   },
+  "CREATE_ACCOUNT": {
+    "EMAIL_AND_PASSWORD": "Email & Password",
+    "COMPANY_DETAILS": "Company Details"
+  },
   "OFFER_ITEM": {
     "WATCH": "Save",
     "MUST_HAVE": "Must Have",
@@ -81,5 +85,53 @@
   },
   "ADD_OFFER": {
     "SUCCESS_MESSAGE": "Offer has been added!"
+  },
+  "DASHOBARD_OFFER_ITEM": {
+    "MUST_HAVE": "Must Have",
+    "NICE_TO_HAVE": "Nice To Have",
+    "DESCRIPTION": "Description",
+    "UPDATE": "Update",
+    "DELETE": "Delete"
+  },
+  "DELETE_OFFER": {
+    "SURE": "Are you sure?",
+    "TEXT": "You will delete offer {{ name }} from your offers",
+    "YES": "Yes",
+    "NO": "No"
+  },
+  "OFFER_FORM": {
+    "NAME": "Name",
+    "EXP_LEVEL": "Experience Level",
+    "CATEGORY": "Category",
+    "MIN_SALARY": "Min Salary",
+    "MAX_SALARY": "Max Salary",
+    "DESCRIPTION": "Description",
+    "MUST_HAVE": "Must Have",
+    "NICE_TO_HAVE": "Nice To Have",
+    "REMOTE": "Remote",
+    "ADDRESS": "Address",
+    "CITY": "City",
+    "POST_CODE": "Post Code",
+    "STREET": "Street",
+    "NUMBER": "Number",
+    "CREATE": "Create",
+    "SAVE": "Save",
+    "CLOSE": "Close"
+  },
+  "COMPANY_FORM": {
+    "COMPANY_DETAILS": "Company Details",
+    "NAME": "Company Name",
+    "DESCRIPTION": "Description",
+    "FOUNDED_IN": "Founded In (year)",
+    "TECHNOLOGIES": "Technologies",
+    "COMPANY_SIZE": "Company Size",
+    "CONTACT": "Contact",
+    "CITY": "City",
+    "POST_CODE": "Post Code",
+    "STREET": "Street",
+    "NUMBER": "Number",
+    "WEBSITE_AND_SOCIAL_MEDIA": "Website & Social Media",
+    "WEBSITE": "Website",
+    "CREATE": "Create"
   }
 }

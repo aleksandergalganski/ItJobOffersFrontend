@@ -48,6 +48,10 @@
     "INVALID_EMAIL": "Niepoprawny adres email",
     "PASSWORD_LENGTH_ERROR": "Hasło musi mieć co najmniej 8 znaków"
   },
+  "CREATE_ACCOUNT": {
+    "EMAIL_AND_PASSWORD": "Email & Hasło",
+    "COMPANY_DETAILS": "Dane Firmy"
+  },
   "OFFER_ITEM": {
     "WATCH": "Obserwuj",
     "MUST_HAVE": "Wymagane",
@@ -81,5 +85,53 @@
   },
   "ADD_OFFER": {
     "SUCCESS_MESSAGE": "Oferta została dodana!"
+  },
+  "DASHOBARD_OFFER_ITEM": {
+    "MUST_HAVE": "Wymagane",
+    "NICE_TO_HAVE": "Mile Widziane",
+    "DESCRIPTION": "Krótki Opis",
+    "UPDATE": "Edytuj",
+    "DELETE": "Usuń"
+  },
+  "DELETE_OFFER": {
+    "SURE": "Czy jesteś tego pewny?",
+    "TEXT": "Usuniesz ofertę {{ name }} z Twoich ofert",
+    "YES": "Tak",
+    "NO": "Nie"
+  },
+  "OFFER_FORM": {
+    "NAME": "Nazwa",
+    "EXP_LEVEL": "Doświadczenie",
+    "CATEGORY": "Kategoria",
+    "MIN_SALARY": "Pensja Minimalna",
+    "MAX_SALARY": "Pensja Maksymalna",
+    "DESCRIPTION": "Opis",
+    "MUST_HAVE": "Wymagane",
+    "NICE_TO_HAVE": "Mile Widziane",
+    "REMOTE": "Zdalnie",
+    "ADDRESS": "Adres",
+    "CITY": "Miasto",
+    "POST_CODE": "Kod Pocztowy",
+    "STREET": "Ulica",
+    "NUMBER": "Numer",
+    "CREATE": "Stwórz",
+    "SAVE": "Zapisz",
+    "CLOSE": "Zamknij"
+  },
+  "COMPANY_FORM": {
+    "COMPANY_DETAILS": "Dane Firmy",
+    "NAME": "Nazwa Firmy",
+    "DESCRIPTION": "Opis",
+    "FOUNDED_IN": "Utworzono w  (rok)",
+    "TECHNOLOGIES": "Technologie",
+    "COMPANY_SIZE": "Wielkość firmy",
+    "CONTACT": "Kontakt",
+    "CITY": "Miasto",
+    "POST_CODE": "Kod Pocztowy",
+    "STREET": "Ulica",
+    "NUMBER": "Numer",
+    "WEBSITE_AND_SOCIAL_MEDIA": "Strona Internetowa & Social Media",
+    "WEBSITE": "Strona Internetowa",
+    "CREATE": "Stwórz"
   }
 }

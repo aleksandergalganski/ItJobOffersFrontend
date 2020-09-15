@@ -1,8 +1,12 @@
-<h1 mat-dialog-title>Are you sure?</h1>
+<h1 mat-dialog-title>{{ "DELETE_OFFER.SURE" | translate }}</h1>
 <mat-dialog-content>
-  <p>You will delete offer {{ data.name }} from your offers</p>
+  <p>{{ "DELETE_OFFER.TEXT" | translate: data }}</p>
 </mat-dialog-content>
 <div mat-dialog-actions>
-  <button mat-raised-button (click)="onNoClick()">No</button>
-  <button mat-raised-button (click)="onYesClick()" color="warn">Yes</button>
+  <button mat-raised-button (click)="onNoClick()">
+    {{ "DELETE_OFFER.NO" | translate }}
+  </button>
+  <button mat-raised-button (click)="onYesClick()" color="warn">
+    {{ "DELETE_OFFER.YES" | translate }}
+  </button>
 </div>
