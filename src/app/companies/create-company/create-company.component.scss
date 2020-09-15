@@ -1,0 +1,46 @@
+.form {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  justify-items: center;
+
+  &__details,
+  &__address,
+  &__social {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__button {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    width: 100%;
+  }
+}
+
+textarea {
+  height: 200px;
+}
+
+mat-form-field {
+  width: 300px;
+}
+
+@media (max-width: 576px) {
+  mat-form-field {
+    width: 100%;
+  }
+
+  .form {
+    grid-template-columns: 1fr;
+    justify-items: stretch;
+    justify-content: stretch;
+
+    &__button {
+      grid-column-end: auto;
+      grid-column-start: auto;
+    }
+  }
+}

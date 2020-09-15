@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -14,6 +14,7 @@ import { SnackBarService } from 'src/app/shared/snackbar.service';
 export class RegisterComponent implements OnInit {
   isLoading: boolean = false;
   registerForm: FormGroup;
+  @Output() registerDone = new EventEmitter<void>();
 
   constructor(
     private fb: FormBuilder,
@@ -44,12 +45,11 @@ export class RegisterComponent implements OnInit {
         this.isLoading = true;
         const { name, email, password } = this.registerForm.value;
         this.authService.register({ name, email, password }).subscribe(
-          (data) => {
+          (res: { success: true; token: string }) => {
             this.isLoading = false;
             this.showSuccessRegisterSnackBar();
-            setTimeout(() => {
-              this.router.navigate(['/login']);
-            }, 2000);
+            this.saveTokenToLocalStorage(res.token);
+            this.registerDone.emit();
           },
           (error) => {
             this.showApiErrorSnackBar(error.error.error);
@@ -58,6 +58,10 @@ export class RegisterComponent implements OnInit {
         );
       }
     }
+  }
+
+  private saveTokenToLocalStorage(token: string) {
+    localStorage.setItem('temporaryToken', token);
   }
 
   get name() {

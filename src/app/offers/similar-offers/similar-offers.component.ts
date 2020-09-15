@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { OffersService } from '../offers.service';
 import { Offer } from '../offer.model';
 import { OfferSearch } from '../offer-search.model';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-similar-offers',
@@ -12,6 +13,7 @@ import { OfferSearch } from '../offer-search.model';
 export class SimilarOffersComponent implements OnInit {
   @Input() city?: string;
   @Input() category?: string;
+  @Input() currentOfferId: string;
   offers: Offer[];
   offersSearch: OfferSearch = {};
   translateParams = {};
@@ -36,7 +38,9 @@ export class SimilarOffersComponent implements OnInit {
     this.offersService
       .searchForOffers(this.offersSearch, 1, 5)
       .subscribe((offers: Offer[]) => {
-        this.offers = offers;
+        this.offers = offers.filter(
+          (offer: Offer) => offer._id !== this.currentOfferId
+        );
         this.isLoading = false;
       });
   }

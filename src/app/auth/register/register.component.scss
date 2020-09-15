@@ -1,10 +1,4 @@
 .register {
-  &__title {
-    text-align: center;
-    margin: 10px 0;
-    color: #31c6e8;
-  }
-
   &__form {
     display: flex;
     flex-direction: column;
@@ -22,7 +16,7 @@ mat-form-field {
 
 @media (max-width: 576px) {
   mat-form-field {
-    width: 80%;
+    width: 100%;
   }
 
   .register {

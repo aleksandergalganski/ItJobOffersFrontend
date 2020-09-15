@@ -163,7 +163,10 @@ export class OffersService {
   }
 
   getWatchedOffers(): Offer[] {
-    return JSON.parse(localStorage.getItem('watchedOffers'));
+    if (localStorage.getItem('watchedOffers')) {
+      return JSON.parse(localStorage.getItem('watchedOffers'));
+    }
+    return [];
   }
 
   getWatchedOffersLength(): number {

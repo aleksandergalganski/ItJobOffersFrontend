@@ -33,6 +33,8 @@ import { EditCompanyDetailsComponent } from './dashboard/edit-company-details/ed
 import { CompanyOfferItemComponent } from './dashboard/company-offer-item/company-offer-item.component';
 import { DeleteOfferDialogComponent } from './dashboard/delete-offer-dialog/delete-offer-dialog.component';
 import { UpdateOfferDialogComponent } from './dashboard/update-offer-dialog/update-offer-dialog.component';
+import { CreateCompanyComponent } from './companies/create-company/create-company.component';
+import { CreateAccountComponent } from './auth/create-account/create-account.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,8 @@ import { UpdateOfferDialogComponent } from './dashboard/update-offer-dialog/upda
     CompanyOfferItemComponent,
     DeleteOfferDialogComponent,
     UpdateOfferDialogComponent,
+    CreateCompanyComponent,
+    CreateAccountComponent,
   ],
   imports: [
     BrowserModule,
