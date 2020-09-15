@@ -133,5 +133,13 @@
     "WEBSITE_AND_SOCIAL_MEDIA": "Website & Social Media",
     "WEBSITE": "Website",
     "CREATE": "Create"
+  },
+  "COMPANY_DETAILS": {
+    "EDIT": "Edit Comapny Details",
+    "DELETE": "Delete Company"
+  },
+  "DELETE_COMPANY": {
+    "SURE": "Are you sure?",
+    "TEXT": "You will delete your company, your account and all of your offers from ItJobOffers"
   }
 }

@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>{{ "DELETE_COMPANY.SURE" | translate }}</h1>
+<mat-dialog-content>
+  <p>{{ "DELETE_COMPANY.TEXT" | translate }}</p>
+</mat-dialog-content>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="onNoClick()">
+    {{ "DELETE_OFFER.NO" | translate }}
+  </button>
+  <button mat-raised-button (click)="onYesClick()" color="warn">
+    {{ "DELETE_OFFER.YES" | translate }}
+  </button>
+</div>

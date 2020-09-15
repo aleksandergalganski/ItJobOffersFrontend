@@ -26,4 +26,17 @@ export class CompaniesService {
       }
     );
   }
+
+  deleteCompany(id: string): Observable<any> {
+    return this.httpClient.delete(
+      `http://localhost:5000/api/v1/companies/${id}`
+    );
+  }
+
+  updateCompany(id: string, company: Company): Observable<any> {
+    return this.httpClient.put(
+      `http://localhost:5000/api/v1/companies/${id}`,
+      company
+    );
+  }
 }

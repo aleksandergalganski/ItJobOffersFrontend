@@ -1,1 +1,8 @@
-<p>edit-company-details works!</p>
+<section class="company-details">
+  <button mat-raised-button color="primary" (click)="onOpenUpdateDialog()">
+    {{ "COMPANY_DETAILS.EDIT" | translate }}
+  </button>
+  <button mat-raised-button color="warn" (click)="onOpenDeleteDialog()">
+    {{ "COMPANY_DETAILS.DELETE" | translate }}
+  </button>
+</section>

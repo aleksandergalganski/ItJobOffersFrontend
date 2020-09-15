@@ -133,5 +133,13 @@
     "WEBSITE_AND_SOCIAL_MEDIA": "Strona Internetowa & Social Media",
     "WEBSITE": "Strona Internetowa",
     "CREATE": "Stwórz"
+  },
+  "COMPANY_DETAILS": {
+    "EDIT": "Edytuj Dane Firmy",
+    "DELETE": "Usuń Firmę"
+  },
+  "DELETE_COMPANY": {
+    "SURE": "Czy jesteś tego pewny?",
+    "TEXT": "Usuniesz swoją firmę, swoje konto i wszystkie swoje oferty z portalu ItJobOffers"
   }
 }

@@ -37,7 +37,6 @@ export class CompanyOfferItemComponent implements OnInit {
     );
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(result);
       if (result) {
         this.offersService.deleteOffer(this.offer._id).subscribe((result) => {
           this.snackBarService.showSnackBar('Offer Deleted', 'OK', 2000);

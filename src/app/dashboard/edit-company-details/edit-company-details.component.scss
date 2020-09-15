@@ -1,0 +1,21 @@
+.company-details {
+  padding: 16px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    margin-right: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .company-details {
+    flex-direction: column;
+  }
+
+  button {
+    margin-bottom: 16px;
+    width: 80%;
+  }
+}
