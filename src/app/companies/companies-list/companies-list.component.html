@@ -1,1 +1,39 @@
-<p>companies-list works!</p>
+<section class="companies-list">
+  <div class="container">
+    <div class="cities">
+      <mat-chip-list>
+        <mat-chip
+          *ngFor="let city of cities"
+          (click)="onSelect(city)"
+          [selected]="city === selectedCity"
+          >{{ city }}</mat-chip
+        >
+      </mat-chip-list>
+      <button
+        mat-raised-button
+        color="primary"
+        class="reset-button"
+        (click)="onResetCities()"
+      >
+        Reset
+      </button>
+    </div>
+    <div class="spinner-wrapper">
+      <mat-spinner *ngIf="isLoading"></mat-spinner>
+    </div>
+    <div class="list">
+      <a
+        *ngFor="let company of companies"
+        [routerLink]="['/companies', company._id]"
+      >
+        <mat-card>
+          <mat-card-header>
+            <img src="../../../assets/img/company.png" mat-card-avatar alt="" />
+            <mat-card-title>{{ company.name }}</mat-card-title>
+            <mat-card-subtitle>{{ company.city }} </mat-card-subtitle>
+          </mat-card-header>
+        </mat-card>
+      </a>
+    </div>
+  </div>
+</section>
