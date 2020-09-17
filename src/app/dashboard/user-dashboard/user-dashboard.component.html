@@ -18,12 +18,15 @@
           "DASHBOARD.COMPANY" | translate
         }}</span>
         <img
-          src="../../../assets/img/company.png"
+          [src]="'http://localhost:5000/uploads/' + company.logo"
           alt=""
           style="width: auto; height: 40px"
         />
       </ng-template>
-      <app-edit-company-details [company]="company"></app-edit-company-details>
+      <app-edit-company-details
+        [company]="company"
+        (logoChanged)="onLogoChange()"
+      ></app-edit-company-details>
     </mat-tab>
   </mat-tab-group>
 </section>

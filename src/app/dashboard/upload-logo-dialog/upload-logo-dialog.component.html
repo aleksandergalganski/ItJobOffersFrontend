@@ -1,0 +1,30 @@
+<h1 class="mat-h1" mat-dialog-title>Upload Company Logo</h1>
+<mat-dialog-content [formGroup]="logoForm">
+  <mat-form-field>
+    <ngx-mat-file-input
+      formControlName="file"
+      placeholder="Required input"
+      valuePlaceholder="No file selected"
+      required
+    ></ngx-mat-file-input>
+    <mat-icon matSuffix>folder</mat-icon>
+    <mat-error *ngIf="logoForm.get('file').hasError('required')">
+      Please select a file
+    </mat-error>
+    <mat-error *ngIf="logoForm.get('file').hasError('maxContentSize')">
+      The total size must not exceed
+      {{
+        logoForm.get("requiredfile")?.getError("maxContentSize").maxSize
+          | byteFormat
+      }}
+      ({{
+        logoForm.get("requiredfile")?.getError("maxContentSize").actualSize
+          | byteFormat
+      }}).
+    </mat-error>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+  <button mat-raised-button (click)="onClose()">Close</button>
+</mat-dialog-actions>

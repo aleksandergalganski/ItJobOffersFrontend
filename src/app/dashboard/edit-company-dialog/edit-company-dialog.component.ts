@@ -1,10 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-  throwMatDialogContentAlreadyAttachedError,
-} from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CompaniesService } from 'src/app/companies/companies.service';
 import { Company } from 'src/app/companies/company.model';
 import { SelectOptionsService } from 'src/app/shared/select-options.service';

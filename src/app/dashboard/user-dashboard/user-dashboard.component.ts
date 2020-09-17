@@ -23,13 +23,20 @@ export class UserDashboardComponent implements OnInit {
   ngOnInit(): void {
     this.authService.getMe().subscribe((user: User) => {
       this.user = user;
-
-      this.companiesService
-        .getCompanyByUserId(this.user._id)
-        .subscribe((company: Company) => {
-          this.company = company;
-          this.isLoading = false;
-        });
+      this.fetchCompany();
     });
+  }
+
+  onLogoChange() {
+    this.fetchCompany();
+  }
+
+  private fetchCompany() {
+    this.companiesService
+      .getCompanyByUserId(this.user._id)
+      .subscribe((company: Company) => {
+        this.company = company;
+        this.isLoading = false;
+      });
   }
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { CompaniesService } from 'src/app/companies/companies.service';
@@ -6,6 +6,7 @@ import { Company } from 'src/app/companies/company.model';
 import { SnackBarService } from 'src/app/shared/snackbar.service';
 import { DeleteCompanyDialogComponent } from '../delete-company-dialog/delete-company-dialog.component';
 import { EditCompanyDialogComponent } from '../edit-company-dialog/edit-company-dialog.component';
+import { UploadLogoDialogComponent } from '../upload-logo-dialog/upload-logo-dialog.component';
 
 @Component({
   selector: 'app-edit-company-details',
@@ -14,6 +15,7 @@ import { EditCompanyDialogComponent } from '../edit-company-dialog/edit-company-
 })
 export class EditCompanyDetailsComponent implements OnInit {
   @Input() company: Company;
+  @Output() logoChanged = new EventEmitter<void>();
   isLoading: boolean = false;
 
   constructor(
@@ -65,5 +67,25 @@ export class EditCompanyDetailsComponent implements OnInit {
     });
   }
 
-  onOpenUploadDialog() {}
+  onOpenUploadDialog() {
+    const dialogRef = this.dialog.open(UploadLogoDialogComponent, {
+      disableClose: true,
+      autoFocus: true,
+      data: this.company,
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.isLoading = true;
+        const fd = new FormData();
+        fd.append('file', result);
+        this.companiesService
+          .uploadLogo(this.company._id, fd)
+          .subscribe((res) => {
+            this.isLoading = false;
+            this.logoChanged.emit();
+          });
+      }
+    });
+  }
 }

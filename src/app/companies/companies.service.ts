@@ -53,4 +53,11 @@ export class CompaniesService {
       company
     );
   }
+
+  uploadLogo(companyId: string, formData: FormData): Observable<any> {
+    return this.httpClient.put(
+      `http://localhost:5000/api/v1/companies/${companyId}/logo`,
+      formData
+    );
+  }
 }
