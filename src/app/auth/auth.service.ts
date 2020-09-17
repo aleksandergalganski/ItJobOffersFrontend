@@ -5,12 +5,14 @@ import { tap, map } from 'rxjs/operators';
 
 import { User } from './user.model';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   isLoginSubject = new BehaviorSubject<boolean>(this.hasToken());
+  private apiUrl = environment.apiUrl;
 
   constructor(private httpClient: HttpClient, private router: Router) {}
 
@@ -20,7 +22,7 @@ export class AuthService {
 
   login(email: string, password: string): Observable<any> {
     return this.httpClient
-      .post('http://localhost:5000/api/v1/auth/login', { email, password })
+      .post(`${this.apiUrl}/api/v1/auth/login`, { email, password })
       .pipe(
         tap((res: { success: boolean; token: string }) => {
           localStorage.setItem('token', res.token);
@@ -35,14 +37,14 @@ export class AuthService {
     password: string;
   }): Observable<any> {
     return this.httpClient.post(
-      'http://localhost:5000/api/v1/auth/register',
+      `${this.apiUrl}/api/v1/auth/register`,
       userData
     );
   }
 
   getMe(): Observable<User> {
     return this.httpClient
-      .get('http://localhost:5000/api/v1/auth/whoami')
+      .get(`${this.apiUrl}/api/v1/auth/whoami`)
       .pipe(map((res: { success: boolean; data: User }) => res.data));
   }
 

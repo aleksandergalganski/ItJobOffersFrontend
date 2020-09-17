@@ -4,67 +4,64 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Company } from './company.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CompaniesService {
+  private apiUrl = environment.apiUrl;
+
   constructor(private httpClient: HttpClient) {}
 
   getCompanyByUserId(userId: string): Observable<Company> {
     return this.httpClient
-      .get(`http://localhost:5000/api/v1/companies/user/${userId}`)
+      .get(`${this.apiUrl}/api/v1/companies/user/${userId}`)
       .pipe(map((res: { success: boolean; data: Company }) => res.data));
   }
 
   getAllComapnies(): Observable<any> {
-    return this.httpClient.get('http://localhost:5000/api/v1/companies');
+    return this.httpClient.get(`${this.apiUrl}/api/v1/companies`);
   }
 
   getCompanyBySlug(slug: string): Observable<Company> {
     return this.httpClient
-      .get('http://localhost:5000/api/v1/companies/', {
+      .get(`${this.apiUrl}/api/v1/companies/`, {
         params: new HttpParams().set('slug', slug),
       })
       .pipe(map((res: { succes: boolean; data: Company[] }) => res.data[0]));
   }
 
   getCompanyById(id: string): Observable<any> {
-    return this.httpClient.get(`http://localhost:5000/api/v1/companies/${id}`);
+    return this.httpClient.get(`${this.apiUrl}/api/v1/companies/${id}`);
   }
 
   getCompaniesByCity(city: string): Observable<any> {
-    return this.httpClient.get('http://localhost:5000/api/v1/companies', {
+    return this.httpClient.get(`${this.apiUrl}/api/v1/companies`, {
       params: new HttpParams().set('city', city),
     });
   }
 
   createCompany(userToken: string, company: Company): Observable<any> {
-    return this.httpClient.post(
-      'http://localhost:5000/api/v1/companies',
-      company,
-      {
-        headers: new HttpHeaders().set('Authorization', `Bearer ${userToken}`),
-      }
-    );
+    return this.httpClient.post(`${this.apiUrl}/api/v1/companies`, company, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${userToken}`),
+    });
   }
 
   deleteCompany(id: string): Observable<any> {
-    return this.httpClient.delete(
-      `http://localhost:5000/api/v1/companies/${id}`
-    );
+    return this.httpClient.delete(`${this.apiUrl}/api/v1/companies/${id}`);
   }
 
   updateCompany(id: string, company: Company): Observable<any> {
     return this.httpClient.put(
-      `http://localhost:5000/api/v1/companies/${id}`,
+      `${this.apiUrl}/api/v1/companies/${id}`,
       company
     );
   }
 
   uploadLogo(companyId: string, formData: FormData): Observable<any> {
     return this.httpClient.put(
-      `http://localhost:5000/api/v1/companies/${companyId}/logo`,
+      `${this.apiUrl}/api/v1/companies/${companyId}/logo`,
       formData
     );
   }

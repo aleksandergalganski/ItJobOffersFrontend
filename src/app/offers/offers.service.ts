@@ -5,6 +5,7 @@ import { map, tap } from 'rxjs/operators';
 
 import { Offer } from './offer.model';
 import { OfferSearch } from './offer-search.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -14,12 +15,13 @@ export class OffersService {
     this.getWatchedOffersLength()
   );
   offerAddedSubject = new Subject<Offer>();
+  private apiUrl = environment.apiUrl;
 
   constructor(private httpClient: HttpClient) {}
 
   getAllOffers(page: number = 1): Observable<PaginationReponse> {
     return this.httpClient.get<PaginationReponse>(
-      'http://localhost:5000/api/v1/offers',
+      `${this.apiUrl}/api/v1/offers`,
       {
         params: new HttpParams().set('page', page.toString()),
       }
@@ -61,7 +63,7 @@ export class OffersService {
     }
 
     return this.httpClient
-      .get('http://localhost:5000/api/v1/offers', {
+      .get(`${this.apiUrl}/api/v1/offers`, {
         params: params,
       })
       .pipe(
@@ -73,7 +75,7 @@ export class OffersService {
 
   getOfferByCompany(companyId: string): Observable<Offer[]> {
     return this.httpClient
-      .get('http://localhost:5000/api/v1/offers', {
+      .get(`${this.apiUrl}/api/v1/offers`, {
         params: new HttpParams().set('company', companyId),
       })
       .pipe(
@@ -93,7 +95,7 @@ export class OffersService {
 
   getOfferBySlug(slug: string): Observable<Offer> {
     return this.httpClient
-      .get(`http://localhost:5000/api/v1/offers/slug/${slug}`)
+      .get(`${this.apiUrl}/api/v1/offers/slug/${slug}`)
       .pipe(
         map((res: { success: boolean; data: Offer }) => {
           return res.data;
@@ -103,7 +105,7 @@ export class OffersService {
 
   createOffer(companyId: string, offer: Offer): Observable<any> {
     return this.httpClient
-      .post(`http://localhost:5000/api/v1/companies/${companyId}/offers`, offer)
+      .post(`${this.apiUrl}/api/v1/companies/${companyId}/offers`, offer)
       .pipe(
         tap((res: { success: boolean; data: Offer }) => {
           this.offerAddedSubject.next(res.data);
@@ -113,7 +115,7 @@ export class OffersService {
 
   updateOffer(id: string, offer: Offer): Observable<Offer> {
     return this.httpClient
-      .put(`http://localhost:5000/api/v1/offers/${id}`, offer)
+      .put(`${this.apiUrl}/api/v1/offers/${id}`, offer)
       .pipe(
         map((res: { success: boolean; data: Offer }) => {
           return res.data;
@@ -122,13 +124,11 @@ export class OffersService {
   }
 
   deleteOffer(id: string): Observable<any> {
-    return this.httpClient
-      .delete(`http://localhost:5000/api/v1/offers/${id}`)
-      .pipe(
-        tap((res) => {
-          this.deleteWatchedOffer(id);
-        })
-      );
+    return this.httpClient.delete(`${this.apiUrl}/api/v1/offers/${id}`).pipe(
+      tap((res) => {
+        this.deleteWatchedOffer(id);
+      })
+    );
   }
 
   addWatchedOffer(offer: Offer): boolean {
