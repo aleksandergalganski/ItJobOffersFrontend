@@ -1,14 +1,104 @@
-<section class="company-details">
-  <button mat-raised-button color="primary" (click)="onOpenUpdateDialog()">
-    {{ "COMPANY_DETAILS.EDIT" | translate }}
-  </button>
-  <button mat-raised-button color="primary" (click)="onOpenUploadDialog()">
-    Upload Logo
-  </button>
-  <button mat-raised-button color="warn" (click)="onOpenDeleteDialog()">
-    {{ "COMPANY_DETAILS.DELETE" | translate }}
-  </button>
-</section>
-<div class="spinner-wrapper">
-  <mat-spinner *ngIf="isLoading"></mat-spinner>
+<div class="container">
+  <section class="company-details">
+    <mat-card>
+      <div class="details">
+        <div class="details__item">
+          <h4>Name</h4>
+          <p>{{ company.name }}</p>
+        </div>
+        <div class="details__item">
+          <h4>Email</h4>
+          <p>{{ company.email }}</p>
+        </div>
+        <div class="details__item">
+          <h4>Website</h4>
+          <p>{{ company.website }}</p>
+        </div>
+        <div class="details__item">
+          <h4>Founded In</h4>
+          <p>{{ company.foundedIn }}</p>
+        </div>
+        <div class="details__item details__item--description">
+          <h4>Description</h4>
+          <p>{{ company.description }}</p>
+        </div>
+        <div class="details__item">
+          <h4>Created At</h4>
+          <p>{{ company.createdAt | date: "shortDate" }}</p>
+        </div>
+        <div class="details__item">
+          <h4>Company Size</h4>
+          <p>{{ company.companySize }}</p>
+        </div>
+        <div class="details__item">
+          <h4>City</h4>
+          <p>{{ company.city }}</p>
+        </div>
+        <div class="details__item">
+          <h4>Post Code</h4>
+          <p>{{ company.postCode }}</p>
+        </div>
+        <div class="details__item">
+          <h4>Street</h4>
+          <p>{{ company.street }}</p>
+        </div>
+        <div class="details__item">
+          <h4>Number</h4>
+          <p>{{ company.streetNumber }}</p>
+        </div>
+        <div class="details__item">
+          <h4>Facebook</h4>
+          <p>{{ company.facebookLink }}</p>
+        </div>
+        <div class="details__item">
+          <h4>Instagram</h4>
+          <p>{{ company.instagramLink }}</p>
+        </div>
+        <div class="details__item">
+          <h4>Linkedin</h4>
+          <p>{{ company.linkedinLink }}</p>
+        </div>
+        <div class="details__item details__item--technologies">
+          <h4>Technologies</h4>
+          <mat-chip-list>
+            <mat-chip *ngFor="let tech of company.technologies">{{
+              tech
+            }}</mat-chip>
+          </mat-chip-list>
+        </div>
+      </div>
+    </mat-card>
+  </section>
+  <section class="company-actions">
+    <button
+      mat-raised-button
+      color="primary"
+      class="flexAlignCenter"
+      (click)="onOpenUpdateDialog()"
+    >
+      <mat-icon>create</mat-icon>
+      <span> {{ "COMPANY_DETAILS.EDIT" | translate }}</span>
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      class="flexAlignCenter"
+      (click)="onOpenUploadDialog()"
+    >
+      <mat-icon>insert_photo</mat-icon>
+      <span>Upload Logo</span>
+    </button>
+    <button
+      mat-raised-button
+      color="warn"
+      class="flexAlignCenter"
+      (click)="onOpenDeleteDialog()"
+    >
+      <mat-icon>delete</mat-icon>
+      <span>{{ "COMPANY_DETAILS.DELETE" | translate }}</span>
+    </button>
+  </section>
+  <div class="spinner-wrapper">
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+  </div>
 </div>
