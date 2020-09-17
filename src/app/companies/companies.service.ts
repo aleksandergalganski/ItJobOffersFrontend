@@ -21,11 +21,19 @@ export class CompaniesService {
     return this.httpClient.get('http://localhost:5000/api/v1/companies');
   }
 
+  getCompanyBySlug(slug: string): Observable<Company> {
+    return this.httpClient
+      .get('http://localhost:5000/api/v1/companies/', {
+        params: new HttpParams().set('slug', slug),
+      })
+      .pipe(map((res: { succes: boolean; data: Company[] }) => res.data[0]));
+  }
+
   getCompanyById(id: string): Observable<any> {
     return this.httpClient.get(`http://localhost:5000/api/v1/companies/${id}`);
   }
 
-  getCompanyByCity(city: string): Observable<any> {
+  getCompaniesByCity(city: string): Observable<any> {
     return this.httpClient.get('http://localhost:5000/api/v1/companies', {
       params: new HttpParams().set('city', city),
     });

@@ -1,0 +1,63 @@
+.company-card {
+  margin: 20px 20px 0 20px;
+}
+
+.card-title {
+  h1 {
+    font-size: 25px;
+  }
+
+  display: flex;
+  align-items: center;
+}
+
+.company-logo {
+  height: 75px;
+  width: auto;
+  padding: 5px;
+  border: 1px solid #dddddd;
+  margin-right: 10px;
+}
+
+.location,
+.companySize {
+  color: lighten(#333, 10%);
+  font-size: 16px;
+
+  mat-icon {
+    margin-right: 5px;
+  }
+}
+
+.social {
+  display: flex;
+
+  &__item {
+    margin-right: 10px;
+
+    i {
+      padding: 5px;
+      border: 1px solid #dddddd;
+      font-size: 30px;
+      color: #333;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #333;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.offers-card {
+  margin: 0 20px 10px 20px;
+}
+
+@media (max-width: 576px) {
+  .card-title {
+    h1 {
+      font-size: 20px;
+    }
+  }
+}

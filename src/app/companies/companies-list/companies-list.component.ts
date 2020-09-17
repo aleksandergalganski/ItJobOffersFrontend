@@ -30,7 +30,7 @@ export class CompaniesListComponent implements OnInit {
   onSelect(city: string) {
     this.selectedCity = city;
     this.isLoading = true;
-    this.companiesService.getCompanyByCity(city).subscribe((res) => {
+    this.companiesService.getCompaniesByCity(city).subscribe((res) => {
       this.companies = res.data;
       this.isLoading = false;
     });

@@ -1,1 +1,97 @@
-<p>company-item works!</p>
+<section class="company-item">
+  <div class="container">
+    <mat-card *ngIf="!isLoading" class="company-card">
+      <mat-card-header>
+        <mat-card-title class="card-title">
+          <img
+            class="company-logo"
+            [src]="'http://localhost:5000/uploads/' + company.logo"
+          />
+          <div>
+            <h1>{{ company.name }}</h1>
+            <span class="location flexAlignCenter">
+              <mat-icon>home</mat-icon>
+              <p>{{ company.city }}</p>
+            </span>
+            <span class="companySize flexAlignCenter">
+              <mat-icon>face</mat-icon>
+              <p>{{ company.companySize }}</p>
+            </span>
+          </div>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="description mb-10">
+          <h2 class="mat-h2">Description</h2>
+          <p class="mat-body">
+            {{ company.description }}
+          </p>
+        </div>
+        <div class="technologies mb-10">
+          <h2 class="mat-h2">Technologies</h2>
+          <mat-chip-list>
+            <mat-chip
+              *ngFor="let tech of company.technologies"
+              color="primary"
+              selected
+              >{{ tech }}</mat-chip
+            >
+          </mat-chip-list>
+        </div>
+        <h2 class="mat-h2">Social Media & Website</h2>
+        <div class="social">
+          <div
+            class="social__item social__item-website"
+            *ngIf="company.website"
+          >
+            <a href="{{ company.website }}">
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+          <div
+            class="social__item social__item--facebook"
+            *ngIf="company.facebookLink"
+          >
+            <a href="{{ company.facebookLink }}">
+              <i class="fab fa-facebook"></i>
+            </a>
+          </div>
+          <div
+            class="social__item social__item--linkedin"
+            *ngIf="company.linkedinLink"
+          >
+            <a href="{{ company.linkedinLink }}">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+          <div
+            class="social__item social__item--instagram"
+            *ngIf="company.instagramLink"
+          >
+            <a href="{{ company.facebookLink }}">
+              <i class="fab fa-instagram-square"></i>
+            </a>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <div class="spinner-wrapper">
+      <mat-spinner *ngIf="isLoading"></mat-spinner>
+    </div>
+    <div class="company-offers">
+      <mat-card class="offers-card">
+        <mat-card-title>Offers from {{ company.name }}</mat-card-title>
+        <mat-card-content>
+          <mat-list>
+            <a
+              mat-list-item
+              *ngFor="let offer of offers"
+              [routerLink]="['/offers', offer.slug]"
+              >{{ offer.name }}</a
+            >
+          </mat-list>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</section>

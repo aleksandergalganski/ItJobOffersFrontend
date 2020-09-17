@@ -24,7 +24,7 @@
     <div class="list">
       <a
         *ngFor="let company of companies"
-        [routerLink]="['/companies', company._id]"
+        [routerLink]="['/companies', company.slug]"
       >
         <mat-card>
           <mat-card-header>
