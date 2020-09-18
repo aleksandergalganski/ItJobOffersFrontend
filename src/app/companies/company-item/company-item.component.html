@@ -3,10 +3,7 @@
     <mat-card *ngIf="!isLoading" class="company-card">
       <mat-card-header>
         <mat-card-title class="card-title">
-          <img
-            class="company-logo"
-            [src]="'http://localhost:5000/uploads/' + company.logo"
-          />
+          <img class="company-logo" [src]="company.logoUrl" />
           <div>
             <h1>{{ company.name }}</h1>
             <span class="location flexAlignCenter">

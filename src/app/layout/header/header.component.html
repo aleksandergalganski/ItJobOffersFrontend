@@ -17,7 +17,7 @@
             <a routerLink="/offers">{{ "HEADER.OFFERS" | translate }}</a>
           </li>
           <li class="nav__item nav__item--observe">
-            <a routerLink="/watchedoffers"
+            <a routerLink="/offers/watchedoffers"
               ><mat-icon [matBadge]="watchedfOffersLen" matBadgeColor="accent"
                 >star</mat-icon
               >{{ "HEADER.SAVED" | translate }}</a
@@ -27,10 +27,12 @@
             <a routerLink="/companies">{{ "HEADER.COMPANIES" | translate }}</a>
           </li>
           <li class="nav__item nav__item--auth" *ngIf="!isAuth">
-            <a routerLink="/register">{{ "HEADER.REGISTER" | translate }}</a>
+            <a routerLink="/auth/register">{{
+              "HEADER.REGISTER" | translate
+            }}</a>
           </li>
           <li class="nav__item nav__item--auth" *ngIf="!isAuth">
-            <a routerLink="/login">{{ "HEADER.LOGIN" | translate }}</a>
+            <a routerLink="/auth/login">{{ "HEADER.LOGIN" | translate }}</a>
           </li>
           <li class="nav__item nav__item--auth" *ngIf="isAuth">
             <a routerLink="/dashboard">{{ "HEADER.DASHBOARD" | translate }}</a>

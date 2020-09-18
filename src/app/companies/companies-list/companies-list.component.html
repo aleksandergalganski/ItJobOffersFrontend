@@ -28,7 +28,11 @@
       >
         <mat-card>
           <mat-card-header>
-            <img src="../../../assets/img/company.png" mat-card-avatar alt="" />
+            <img
+              [src]="company.logoUrl"
+              mat-card-avatar
+              alt="{{ company.name }}"
+            />
             <mat-card-title>{{ company.name }}</mat-card-title>
             <mat-card-subtitle>{{ company.city }} </mat-card-subtitle>
           </mat-card-header>

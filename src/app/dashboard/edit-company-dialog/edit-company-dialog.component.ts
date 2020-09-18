@@ -39,6 +39,7 @@ export class EditCompanyDialogComponent implements OnInit {
     delete this.company.logo;
     delete this.company.user;
     delete this.company.createdAt;
+    delete this.company.logoUrl;
   }
 
   setSelect() {

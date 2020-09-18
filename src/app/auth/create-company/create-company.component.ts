@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SelectOptionsService } from 'src/app/shared/select-options.service';
-import { CompaniesService } from '../companies.service';
+import { CompaniesService } from '../../companies/companies.service';
 
 @Component({
   selector: 'app-create-company',

@@ -31,7 +31,7 @@ export class CreateAccountComponent implements OnInit {
   }
 
   onCreationDone() {
-    this.router.navigate(['/login']);
+    this.router.navigate(['/auth/login']);
   }
 
   onRegisterDone() {

@@ -20,8 +20,10 @@ export class CompaniesService {
       .pipe(map((res: { success: boolean; data: Company }) => res.data));
   }
 
-  getAllComapnies(): Observable<any> {
-    return this.httpClient.get(`${this.apiUrl}/api/v1/companies`);
+  getAllComapnies(): Observable<Company[]> {
+    return this.httpClient
+      .get(`${this.apiUrl}/api/v1/companies`)
+      .pipe(map((res: { success: boolean; data: Company[] }) => res.data));
   }
 
   getCompanyBySlug(slug: string): Observable<Company> {
@@ -32,14 +34,18 @@ export class CompaniesService {
       .pipe(map((res: { succes: boolean; data: Company[] }) => res.data[0]));
   }
 
-  getCompanyById(id: string): Observable<any> {
-    return this.httpClient.get(`${this.apiUrl}/api/v1/companies/${id}`);
+  getCompanyById(id: string): Observable<Company> {
+    return this.httpClient
+      .get(`${this.apiUrl}/api/v1/companies/${id}`)
+      .pipe(map((res: { success: boolean; data: Company }) => res.data));
   }
 
-  getCompaniesByCity(city: string): Observable<any> {
-    return this.httpClient.get(`${this.apiUrl}/api/v1/companies`, {
-      params: new HttpParams().set('city', city),
-    });
+  getCompaniesByCity(city: string): Observable<Company[]> {
+    return this.httpClient
+      .get(`${this.apiUrl}/api/v1/companies`, {
+        params: new HttpParams().set('city', city),
+      })
+      .pipe(map((res: { success: boolean; data: Company[] }) => res.data));
   }
 
   createCompany(userToken: string, company: Company): Observable<any> {

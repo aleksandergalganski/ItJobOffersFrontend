@@ -16,10 +16,11 @@ export interface Offer {
   street?: string;
   streetNumber?: string;
   createdAt?: Date;
-  company:
+  company?:
     | {
         _id: string;
         logo: string;
+        logoUrl: string;
         name: string;
         companySize: string;
         description: string;

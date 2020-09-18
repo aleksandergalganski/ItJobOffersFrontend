@@ -155,11 +155,13 @@ export class OffersService {
   }
 
   deleteWatchedOffer(id: string) {
-    let offers: Offer[] = JSON.parse(localStorage.getItem('watchedOffers'));
-    offers = offers.filter((offer: Offer) => offer._id !== id);
-    localStorage.setItem('watchedOffers', JSON.stringify(offers));
+    if (localStorage.getItem('watchedOffers')) {
+      let offers: Offer[] = JSON.parse(localStorage.getItem('watchedOffers'));
+      offers = offers.filter((offer: Offer) => offer._id !== id);
+      localStorage.setItem('watchedOffers', JSON.stringify(offers));
 
-    this.watchedOffersLengthChanged.next(this.getWatchedOffersLength());
+      this.watchedOffersLengthChanged.next(this.getWatchedOffersLength());
+    }
   }
 
   getWatchedOffers(): Offer[] {

@@ -10,7 +10,7 @@
       (click)="onScrollTop()"
     >
       <h3 class="offer__name">{{ offer.name }}</h3>
-      <img class="offer__logo" src="../../../assets/img/company.png" alt="" />
+      <img class="offer__logo" src="{{ offer.company.logoUrl }}" alt="" />
       <small class="offer__company">{{ offer.company.name }}</small>
     </a>
   </div>

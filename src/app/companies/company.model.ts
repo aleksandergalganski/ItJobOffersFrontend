@@ -14,6 +14,7 @@ export interface Company {
   instagramLink?: string;
   linkedinLink?: string;
   logo?: string;
+  logoUrl?: string;
   user?: string;
   city: string;
   postCode: string;

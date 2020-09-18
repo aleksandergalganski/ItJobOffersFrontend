@@ -17,11 +17,7 @@
         <span style="margin-right: 10px">{{
           "DASHBOARD.COMPANY" | translate
         }}</span>
-        <img
-          [src]="'http://localhost:5000/uploads/' + company.logo"
-          alt=""
-          style="width: auto; height: 40px"
-        />
+        <img [src]="company.logoUrl" alt="" style="width: auto; height: 40px" />
       </ng-template>
       <app-edit-company-details
         [company]="company"
