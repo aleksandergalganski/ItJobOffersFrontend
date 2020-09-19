@@ -110,7 +110,7 @@ export class AddOfferComponent implements OnInit {
       city: [''],
       postCode: ['', Validators.pattern('^[0-9]{2}-[0-9]{3}$')],
       street: [''],
-      number: [''],
+      streetNumber: [''],
     });
   }
 
