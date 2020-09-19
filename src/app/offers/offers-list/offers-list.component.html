@@ -52,6 +52,7 @@
       </mat-select>
     </mat-form-field>
     <mat-checkbox
+      #isRemote
       [(ngModel)]="offerSearch.isRemote"
       (change)="onChangeInput()"
       >{{ "SEARCH.REMOTE" | translate }}</mat-checkbox
@@ -82,10 +83,6 @@
       <p *ngIf="offer.isRemote" class="offer__remote">
         {{ "OFFER.REMOTE" | translate }}
       </p>
-      <small class="offer__created flexAlignCenter"
-        ><mat-icon>today</mat-icon
-        >{{ offer.createdAt | date: "shortDate" }}</small
-      >
       <img
         src="{{ offer.company.logoUrl }}"
         alt=""

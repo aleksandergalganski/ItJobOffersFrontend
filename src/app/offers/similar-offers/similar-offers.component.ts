@@ -31,7 +31,7 @@ export class SimilarOffersComponent implements OnInit {
     }
 
     this.translateParams = {
-      city: this.city,
+      city: this.city ? this.city : 'Remote',
       category: this.category,
     };
 

@@ -23,6 +23,7 @@ export class OfferItemComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.scrollTop();
     this.route.params.subscribe((params) => {
       this.offfersService
         .getOfferBySlug(params.slug)
@@ -30,6 +31,13 @@ export class OfferItemComponent implements OnInit {
           this.offer = offer;
           this.isLoading = false;
         });
+    });
+  }
+
+  private scrollTop() {
+    window.scroll({
+      behavior: 'smooth',
+      top: 0,
     });
   }
 

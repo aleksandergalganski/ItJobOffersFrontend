@@ -37,6 +37,10 @@
   &__companyLogo {
     width: auto;
     height: 100px;
+    border: 2px solid #dedbd5;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px 0;
   }
 
   &__musthave {
@@ -47,10 +51,11 @@
     padding: 10px;
 
     &__item {
+      width: 80px;
       padding: 5px 10px;
       margin-right: 5px;
       background-color: #31c6e8;
-      padding: 3px;
+      padding: 3px 8px;
       font-size: 14px;
       color: #fff;
       text-align: center;
@@ -146,6 +151,16 @@ button {
 @media (min-width: 577px) and (max-width: 992px) {
   .offers__list {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .offer {
+    &__musthave {
+      display: none;
+    }
+
+    &__apply {
+      margin-top: 5px;
+    }
   }
 
   .search-section {

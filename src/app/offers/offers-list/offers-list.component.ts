@@ -5,6 +5,7 @@ import { MatSelect } from '@angular/material/select';
 import { Offer } from '../offer.model';
 import { OfferSearch } from '../offer-search.model';
 import { OffersService } from '../offers.service';
+import { MatCheckbox } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-offers-list',
@@ -29,6 +30,7 @@ export class OffersListComponent implements OnInit {
   @ViewChild('city', { static: true }) city: MatSelect;
   @ViewChild('experienceLevel', { static: true }) experienceLevel: MatSelect;
   @ViewChild('category', { static: true }) category: MatSelect;
+  @ViewChild('isRemote', { static: true }) isRemote: MatCheckbox;
   page: number = 1;
 
   cities = ['Gdansk', 'Poznan', 'Warszawa'];
@@ -79,6 +81,12 @@ export class OffersListComponent implements OnInit {
         page: '1',
       },
     });
+    this.isLoading = true;
+    this.offersService.getAllOffers(1).subscribe((res: any) => {
+      this.offers = res.data;
+      this.pagination = res.pagination;
+      this.isLoading = false;
+    });
   }
 
   onLoadNext() {
@@ -102,5 +110,6 @@ export class OffersListComponent implements OnInit {
     this.category.value = undefined;
     this.city.value = undefined;
     this.technology.value = undefined;
+    this.isRemote.checked = false;
   }
 }
