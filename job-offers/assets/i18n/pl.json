@@ -1,0 +1,145 @@
+{
+  "HEADER": {
+    "OFFERS": "Ogłoszenia",
+    "COMPANIES": "Pracodawcy",
+    "ADDOFFER": "Dodaj Ofertę",
+    "REGISTER": "Rejestracja",
+    "LOGIN": "Zaloguj",
+    "SAVED": "Obserwowane",
+    "DASHBOARD": "Panel Firmowy",
+    "LOGOUT": "Wyloguj się"
+  },
+  "OFFER": {
+    "APPLY": "Aplikuj",
+    "REMOTE": "Zdalnie"
+  },
+  "SEARCH": {
+    "CITY": "Miasto",
+    "CATEGORY": "Kategoria",
+    "TECHNOLOGY": "Technologie",
+    "EXP_LEVEL": "Doświadczenie",
+    "REMOTE": "Zdalnie",
+    "RESET": "Resetuj Filtry"
+  },
+  "LOGIN": {
+    "PASSWORD": "Hasło",
+    "EMAIL": "Email",
+    "LOGIN": "Zaloguj Się",
+    "SUBMIT": "Zatwierdź",
+    "PASSWORD_REQUIRED": "Hasło jest wymagane",
+    "EMAIL_REQUIRED": "Email jest wymagany",
+    "INVALID_EMAIL": "Niepoprawny adres email",
+    "PASSWORD_LENGTH_ERROR": "Hasło musi mieć co najmniej 8 znaków",
+    "INVALID_CREDENTIALS": "Niepoprawne dane logowania",
+    "TRY_AGAIN": "Spróbuj Ponownie"
+  },
+  "REGISTER": {
+    "REGISTER": "Stwórz Konto",
+    "NAME": "Nazwa",
+    "PASSWORD": "Hasło",
+    "CONFIRM_PASSWORD": "Potwierdź Hasło",
+    "CREATE": "Stwórz",
+    "PASSWORD_ERROR": "Hasła nie są takie same",
+    "DUPLICATE_MESSAGE": "Email lub nazwa są już zajęte",
+    "SUCCESS_MESSAGE": "Sukces!",
+    "NAME_REQUIRED": "Nazwa jest wymagana",
+    "PASSWORD_REQUIRED": "Hasło jest wymagane",
+    "EMAIL_REQUIRED": "Email jest wymagany",
+    "INVALID_EMAIL": "Niepoprawny adres email",
+    "PASSWORD_LENGTH_ERROR": "Hasło musi mieć co najmniej 8 znaków"
+  },
+  "CREATE_ACCOUNT": {
+    "EMAIL_AND_PASSWORD": "Email & Hasło",
+    "COMPANY_DETAILS": "Dane Firmy"
+  },
+  "OFFER_ITEM": {
+    "WATCH": "Obserwuj",
+    "MUST_HAVE": "Wymagane",
+    "NICE_TO_HAVE": "Mile Widziane",
+    "DESCRIPTION": "Krótki Opis",
+    "COMPANY_NAME": "Nazwa Firmy",
+    "COMPANY_SIZE": "Liczba Pracowników",
+    "MESSAGE_SUCCESS": "Dodano Do Oberwowanych Ofert",
+    "MESSAGE_ERROR": "Dodano tą ofertę wcześniej"
+  },
+  "SAVED": {
+    "NO_OFFERS": "Nie obserwujesz w tym momencie żadnych ofert",
+    "YOUR_SAVED_OFFERS": "Twoje Obserwowane Oferty Pracy",
+    "DELETE_MESSAGE": "Usunięto z obserwowanych"
+  },
+  "SIMILAR_OFFERS": {
+    "HEADER": "Zobacz więcej z {{ city }} z kategorii {{ category }}"
+  },
+  "APPLY": {
+    "APPLY": "Aplikuj",
+    "MESSAGE": "Wiadmość",
+    "ATTACH_CV": "Dodaj Swoje CV",
+    "SUCCESS_MESSAGE": "Aplikacja została wysłana",
+    "ERROR_MESSAGE": "Błąd podczas wysyłania aplikacji",
+    "EMAIL_ERROR": "Nie możesz drugi raz aplikować na to samo stanowisko"
+  },
+  "DASHBOARD": {
+    "ADD_OFFER": "Dodaj Ofertę",
+    "OFFERS": "Oferty",
+    "COMPANY": "Firma"
+  },
+  "ADD_OFFER": {
+    "SUCCESS_MESSAGE": "Oferta została dodana!"
+  },
+  "DASHOBARD_OFFER_ITEM": {
+    "MUST_HAVE": "Wymagane",
+    "NICE_TO_HAVE": "Mile Widziane",
+    "DESCRIPTION": "Krótki Opis",
+    "UPDATE": "Edytuj",
+    "DELETE": "Usuń"
+  },
+  "DELETE_OFFER": {
+    "SURE": "Czy jesteś tego pewny?",
+    "TEXT": "Usuniesz ofertę {{ name }} z Twoich ofert",
+    "YES": "Tak",
+    "NO": "Nie"
+  },
+  "OFFER_FORM": {
+    "NAME": "Nazwa",
+    "EXP_LEVEL": "Doświadczenie",
+    "CATEGORY": "Kategoria",
+    "MIN_SALARY": "Pensja Minimalna",
+    "MAX_SALARY": "Pensja Maksymalna",
+    "DESCRIPTION": "Opis",
+    "MUST_HAVE": "Wymagane",
+    "NICE_TO_HAVE": "Mile Widziane",
+    "REMOTE": "Zdalnie",
+    "ADDRESS": "Adres",
+    "CITY": "Miasto",
+    "POST_CODE": "Kod Pocztowy",
+    "STREET": "Ulica",
+    "NUMBER": "Numer",
+    "CREATE": "Stwórz",
+    "SAVE": "Zapisz",
+    "CLOSE": "Zamknij"
+  },
+  "COMPANY_FORM": {
+    "COMPANY_DETAILS": "Dane Firmy",
+    "NAME": "Nazwa Firmy",
+    "DESCRIPTION": "Opis",
+    "FOUNDED_IN": "Utworzono w  (rok)",
+    "TECHNOLOGIES": "Technologie",
+    "COMPANY_SIZE": "Wielkość firmy",
+    "CONTACT": "Kontakt",
+    "CITY": "Miasto",
+    "POST_CODE": "Kod Pocztowy",
+    "STREET": "Ulica",
+    "NUMBER": "Numer",
+    "WEBSITE_AND_SOCIAL_MEDIA": "Strona Internetowa & Social Media",
+    "WEBSITE": "Strona Internetowa",
+    "CREATE": "Stwórz"
+  },
+  "COMPANY_DETAILS": {
+    "EDIT": "Edytuj Dane Firmy",
+    "DELETE": "Usuń Firmę"
+  },
+  "DELETE_COMPANY": {
+    "SURE": "Czy jesteś tego pewny?",
+    "TEXT": "Usuniesz swoją firmę, swoje konto i wszystkie swoje oferty z portalu ItJobOffers"
+  }
+}
