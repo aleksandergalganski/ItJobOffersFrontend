@@ -4,7 +4,7 @@
       <mat-nav-list *ngIf="offers.length > 0">
         <h1 matSubheader>{{ "SAVED.YOUR_SAVED_OFFERS" | translate }}</h1>
         <mat-list-item *ngFor="let offer of offers">
-          <img matListAvatar src="{{ offer.company.logoUrl }} alt="..." />
+          <img matListAvatar src="{{ offer.company.logoUrl }}" alt="..." />
           <a matLine [routerLink]="['/offers', offer.slug]">
             <span>
               {{ offer.name }}
