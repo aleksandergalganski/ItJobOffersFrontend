@@ -38,9 +38,12 @@ export class SimilarOffersComponent implements OnInit {
     this.offersService
       .searchForOffers(this.offersSearch, 1, 5)
       .subscribe((offers: Offer[]) => {
+        console.log('Before: ', offers);
+        console.log('Current offer', this.currentOfferId);
         this.offers = offers.filter(
           (offer: Offer) => offer._id !== this.currentOfferId
         );
+        console.log('After: ', this.offers);
         this.isLoading = false;
       });
   }
